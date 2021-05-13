@@ -1,8 +1,22 @@
+
+/* ! general */
 body{
   background-color: #eee;
 }
+img {
+  object-fit: cover;
+}
 
-header{
+a {
+  color: black;
+}
+
+p {
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.home header{
   margin-top: 75px;
   background-color: #efff46;
   height: 250px;
@@ -29,9 +43,6 @@ header{
   object-fit: cover;
 }
 
-
-
-
 .white-panel{
   background: #fff;
   position: relative;
@@ -46,4 +57,5 @@ header{
   top: 20px;
 }
 
+/* ! footer */
 footer{margin-top: 75px;}
