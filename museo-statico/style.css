@@ -1,0 +1,49 @@
+body{
+  background-color: #eee;
+}
+
+header{
+  margin-top: 75px;
+  background-color: #efff46;
+  height: 250px;
+}
+
+.opere-section{
+  position: relative;
+  top: -67px;
+}
+
+.card{
+  box-shadow: 0px 30px 20px -10px rgb(0 0 0 / 15%);
+  transition: all .5s cubic-bezier(.215,.61,.355,1);
+  border: none;
+  border-radius: 0;
+}
+.card:hover{
+  box-shadow: none;
+  transform: translateY(10px);
+}
+
+.card-img-top{
+  height: 400px;
+  object-fit: cover;
+}
+
+
+
+
+.white-panel{
+  background: #fff;
+  position: relative;
+
+}
+.white-panel--left{
+  right: -80px;
+  top: 20px;
+}
+.white-panel--right{
+  left: -80px;
+  top: 20px;
+}
+
+footer{margin-top: 75px;}
