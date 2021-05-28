@@ -1,6 +1,7 @@
 package it.uniromae3.siw.progettoDocente.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -36,8 +37,31 @@ public class CollezioneService {
 	}
 	
 	@Transactional
-	public List<Collezione> rimuoviCollezione(String nome) {
-		return collezioneRepository.deleteInformations(nome);
+	public boolean rimuoviCollezione(String nome) {
+		List<Collezione> optional = (List<Collezione>) collezioneRepository.findAll();
+		if(optional.size() > 0) {
+			collezioneRepository.deleteCollezione(nome);
+			return true;
+		}
+		return false;
+	}
+	
+	@Transactional
+	public Collezione collezionePerNome(String nome) {
+		Optional<Collezione> optional = collezioneRepository.findById(nome);
+		if(optional.isPresent())
+			return optional.get();
+		else
+			return null;
+	}
+	
+	@Transactional
+	public boolean alreadyExists(Collezione collezione) {
+		List<Collezione> collezioni = this.collezioneRepository.findByNome(collezione.getNome());
+		if(collezioni.size() >0)
+			return true;
+		else
+			return false;
 	}
 
 }

@@ -8,10 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQuery(name="deleteOpera", query="DELETE FROM opera o")
 public class Opera {
 	
 	@Id
@@ -19,7 +17,7 @@ public class Opera {
 	private String titolo;
 
 	@Column(nullable = false)
-	private LocalDate AnnoDiRealizzazione;
+	private LocalDate annoDiRealizzazione;
 	
 	@Column(nullable = false)
 	private String descrizione;

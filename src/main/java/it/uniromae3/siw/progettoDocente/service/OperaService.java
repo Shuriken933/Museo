@@ -37,18 +37,43 @@ public class OperaService {
 	}
 
 	@Transactional
+	public List<Opera> trovaPerTitolo(String titolo) {
+		return operaRepository.findByTitolo(titolo);
+	}
+
+	@Transactional
 	public boolean rimuoviOpera(String nome) {
 		List<Opera> optional = (List<Opera>) operaRepository.findAll();
 		if(optional.size() > 0) {
 			operaRepository.deleteOpera(nome);
 			return true;
-			} 
+		} 
 		return false;
 	}
 
-//
-//	@Transactional
-//	public List<Opera> rimuoviOpera(String nome ) {
-//		return operaRepository.deleteOpera(nome);
-//	}
-}
+	@Transactional
+	public boolean rimuoviTutteOpere() {
+		List<Opera> optional = (List<Opera>) operaRepository.findAll();
+		if(optional.size() > 0) {
+			operaRepository.deleteAll();
+			return true;
+		} 
+		return false;
+	}
+
+		@Transactional
+		public boolean alreadyExists(Opera opera) {
+			List<Opera> collezioni = this.operaRepository.findByTitolo(opera.getTitolo());
+			if(collezioni.size() >0)
+				return true;
+			else
+				return false;
+		}
+
+
+		//
+		//	@Transactional
+		//	public List<Opera> rimuoviOpera(String nome ) {
+		//		return operaRepository.deleteOpera(nome);
+		//	}
+	}
