@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='SIW')"></head>
+<body class="opera">
+
+	<!-- inizio MENU -->
+	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+
+	<!-- inizio HERO -->
+	<div class="container mb-5">
+		<header class="mb-4">
+			<h1 class="display-3 text-center">Notte stellata</h1>
+			<p class="text-center">
+				<a href="artista.html">Vincent van Gogh</a>
+			</p>
+			<div class="text-center">
+				<img src="img/vanGogh-1.jpg" alt="" width="100%" height="100%">
+			</div>
+		</header>
+	</div>
+	<!-- inizio HERO -->
+
+
+	<main>
+		<!-- inizio DESCRIZIONE -->
+		<div class="container">
+			<div class="row">
+				<div class="col-6 m-auto">
+					<p>Nel 1888, prima dell'internamento a Saint-Rémy, van Gogh
+						scrisse: «Con un quadro vorrei poter esprimere qualcosa di
+						commovente come una musica. Vorrei dipingere uomini e donne con un
+						non so che di eterno, di cui un tempo era simbolo l’aureola, e che
+						noi cerchiamo di rendere con lo stesso raggiare, con la vibrazione
+						dei colori [...]. Ah il ritratto, il ritratto che mostri i
+						pensieri, l’anima del modello: ecco cosa credo debba vedersi»
+
+						(Vincent van Gogh, Arles, 3 settembre 1888) La Notte stellata,
+						certamente una delle opere vangoghiane più celebri, risponde
+						perfettamente a quest'esigenza. In questo dipinto, infatti, il
+						pittore ha certamente cercato il contatto diretto con la realtà,
+						dipingendo quello che si poteva vedere dalla finestra della sua
+						stanza nel manicomio di Saint-Rémy. Van Gogh, tuttavia, non ha
+						ripreso fedelmente questa veduta notturna, bensì l'ha manipolata
+						con mezzi plastici, interiorizzandola fino allo spasimo e
+						trasformandola in una potente visione onirica in cui poter fare
+						affiorare le sue emozioni, le sue paure, i suoi viaggi dell'anima.
+						La Notte stellata, pertanto, non offre all'osservatore un'immagine
+						fedele della realtà, quanto una forma di «espressione» di
+						quest'ultima. L'immagine possiede una forza straordinaria. A
+						sinistra la scena è chiusa da un cipresso alto e severo che,
+						stagliandosi contro il cielo notturno, agisce come un
+						intermediario vegetale tra la terra e il cielo, tra la vita e la
+						morte: più che un albero sembrerebbe quasi una fiamma scura che
+						divampa all'improvviso alla ricerca dell'infinito. A fianco del
+						solitario cipresso troviamo un piccolo paesino - forse è
+						Saint-Rémy, forse Nuenen, forse una reminiscenza del villaggio
+						natio - che, disperdendosi su una vallata, sembra perduto
+						nell'immensità del movimento cosmico che fluisce sopra di esso: i
+						caseggiati sono generalmente bassi, fatta eccezione per
+						l'acuminata cuspide di un campanile, che riprende la statuaria
+						verticalità del cipresso e «sfida le forze della natura: è
+						un'antenna e un parafulmine insieme, una sorta di Tour Eiffel, la
+						cui fascinazione è sempre presente nelle vedute notturne
+						dell'artista [...] sembra crepitare, carica di elettricità».[3] A
+						destra vigoreggia la ricca vegetazione degli ulivi, mentre sullo
+						sfondo si estende il profilo diagonale e ondulato delle Alpilles,
+						importante catena montuosa del Meridione francese.</p>
+				</div>
+			</div>
+
+		</div>
+		<!-- fine DESCRIZIONE -->
+	</main>
+
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+
+
+	<script src="js/scripts.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
