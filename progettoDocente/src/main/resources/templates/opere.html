@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div>
+    	<h4 th:text="#{header.opere}">List of opere</h4>
+		<ul>
+			<li th:each="opera : ${opere}">
+				<a href="opera.html" 
+				   th:href="@{'/opera' + '/' + ${opera.id}}" 
+				   th:text="${opera.titolo}">Titolo</a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
