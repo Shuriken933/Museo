@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='SIW')"></head>
+<body>
+
+	<!-- inizio MENU -->
+	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 m-auto">
+
+				<h2>Risorse usate</h2>
+				<p class="mb-5">Qui segue un elenco delle risorse utilizzate per
+					l'implementazione di questo sistema informativo</p>
+
+				<h3>
+					<strong>Bootstrap 5.0</strong>
+				</h3>
+				<p>Bootstrap è un framework per la costruzione di siti
+					responsive (design per mobile, tablet e desktop) che offre file css
+					e javascript tramite i quali si ha elementi già stilizzati e pronti
+					per la maggior parte degli utilizzi. Nel nostro contesto abbiamo
+					usato il menu, il sistema delle griglie (flexbox) e le classi in
+					grado di rendere il sito responsive.</p>
+
+				<h3>
+					<strong>JQuery 3.6.0</strong>
+				</h3>
+				<p>JQuery è una libreria javascript che permette l'uso di codice
+					semplificato per la gestione di animazioni, eventi (azioni con il
+					mouse) ecc. Per questa piattaforma è stato utilizzato per la
+					realizzazione dello slider, nel quale necessitavamo di aggiungere e
+					rimuovere classi css (funzioni "remove" e "add").</p>
+
+				<h3>
+					<strong>Font ~ Cormorant Garamond</strong>
+				</h3>
+				<p>Questo font è stato impiegato per la stilizzazione dei titoli
+					(h1, h2, h3, h4, h5, h6).</p>
+
+				<h3>
+					<strong>Font ~ Poppins</strong>
+				</h3>
+				<p>Questo font è stato impiegato per la stilizzazione dei
+					paragrafi e delle voci dei menu.</p>
+
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+
+	<th:block th:replace="fragments/base.html :: script"></th:block>
+
+</body>
+</html>

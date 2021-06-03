@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='SIW')"></head>
+<body class="artista">
+
+	<!-- inizio MENU -->
+	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+	<div class="container">
+		<h2 class="background-text">Vincent Van Gogh</h2>
+	</div>
+
+
+
+	<!-- inizio HERO -->
+	<header class="container mb-lg-5">
+		<div class="row opere-2-colonne">
+
+			<div class="col-lg-8">
+				<img src="img/vanGogh1.jpg" class="card-img-top" alt="Van Gogh">
+			</div>
+			<div class="col-lg-4">
+				<div class="dark-panel panel--right p-4">
+					<h1>Vincent Van Gogh</h1>
+					<ul class="artist-info">
+						<li>nome: <strong>Vincent</strong></li>
+						<li>cognome: <strong>Van Gogh</strong></li>
+						<li>data di nascita: <strong>30 Marzo 1890</strong></li>
+						<li>data di morte: <strong>29 Luglio 1890</strong></li>
+						<li>nazionalità: <strong>olandese</strong></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</header>
+	<!-- fine HERO -->
+
+
+	<main>
+		<!-- inizio BIOGRAFIA -->
+		<div class="container mb-5">
+			<div class="row">
+				<div class="col-lg-6 m-auto">
+					<p>Notizie della famiglia dei van Gogh si rintracciano a L'Aia
+						fin dalla metà del XVII secolo e a partire dal Settecento quella
+						famiglia trasmise di padre in figlio il mestiere di orefice. Nel
+						primo Ottocento si ha notizia di un Vincent van Gogh (1789-1874),
+						pastore calvinista e padre di undici figli che praticavano diverse
+						attività: tre di loro erano mercanti d'arte, mentre si sa che
+						Theodorus van Gogh (1822-1885) dal 1º aprile 1849 fu un pastore
+						della società riformata olandese, residente presso la piccola
+						comunità di Groot-Zundert, un villaggio vicino Brabante ,di circa
+						seimila abitanti. Sposatosi nel 1851 con Anna Cornelia Carbentus
+						(1819-1907), figlia di un facoltoso rilegatore di libri della
+						corte olandese, Theodorus generò con lei un figlio, Vincent Willem
+						Maria, che tuttavia il 30 marzo 1852 fu partorito già morto.
+
+						
+
+						«Durante la mia malattia ho visto accanto a me ogni stanza della
+						casa di Zundert, ogni strada, ogni pianta del giardino, i
+						dintorni, i campi, i vicini, il cimitero, la chiesa col suo orto e
+						persino il nido di gazze sulla grande acacia del cimitero»</p>
+				</div>
+			</div>
+		</div>
+		<!-- fine BIOGRAFIA -->
+
+
+		<!-- inizio OPERE-scroll -->
+		<div class="carosello">
+			<div class="items">
+				<div class="item item1">
+					<img src="img/leonardo-1.jpeg" alt="">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Gioconda</h3></a> <a href="artista.html"><h4>
+								- Leonardo Da Vinci</h4></a>
+					</div>
+				</div>
+				<div class="item item2">
+					<img src="img/raffaello-1.jpg" alt="">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Una scena ripresa a caso</h3></a> <a
+							href="artista.html"><h4>- Raffaello</h4></a>
+					</div>
+				</div>
+				<div class="item item3">
+					<img src="img/VanGogh-1.jpg" alt="">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Notte stellata</h3></a> <a
+							href="artista.html"><h4>- Van Gogh</h4></a>
+					</div>
+				</div>
+				<div class="item item4">
+					<img src="img/leonardo-1.jpeg" alt="">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Gioconda</h3></a> <a href="artista.html"><h4>
+								- Leonardo Da Vinci</h4></a>
+					</div>
+				</div>
+				<div class="item item5">
+					<img src="img/VanGogh1.jpg" alt="">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Ritratto di Van Gogh</h3></a> <a
+							href="artista.html"><h4>- Van Gogh</h4></a>
+					</div>
+				</div>
+				<div class="item item6">
+					<img src="img/raffaello-1.jpg" alt="">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Una scena a caso</h3></a> <a
+							href="artista.html"><h4>- Raffaello</h4></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- fine OPERE-scroll -->
+	</main>
+
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+
+	<th:block th:replace="fragments/base.html :: script"></th:block>
+
+</body>
+</html>
