@@ -45,7 +45,7 @@ public class CredentialsService {
     	this.credentialsRepository.deleteByUsername(username);
     }*/
     
-    @Transactional
+   /* @Transactional
     public List<Credentials> getAllCredentials(){
     	List<Credentials> result = new ArrayList<>();
     	Iterable<Credentials> iterable = this.credentialsRepository.findAll();
@@ -53,5 +53,5 @@ public class CredentialsService {
 			result.add(credentials);
 		}
     	return result;
-    }
+    }*/
 }

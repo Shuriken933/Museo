@@ -37,11 +37,7 @@ public class MainController {
 	public String getRisorse(Model model) {
 			return "risorse.html";
 	}
-	
-	@RequestMapping(value = {"/error"}, method = RequestMethod.GET)
-	public String getError(Model model) {
-			return "error.html";
-	}
+
 	
 	
 	

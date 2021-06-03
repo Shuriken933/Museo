@@ -22,18 +22,18 @@ public class AuthenticationController {
 	@Autowired
 	private CredentialsService credentialsService;
 	
-	@Autowired
-	private UserValidator userValidator;
+	/*@Autowired
+	private UserValidator userValidator;*/
 	
-	@Autowired
-	private CredentialsValidator credentialsValidator;
+	/*@Autowired
+	private CredentialsValidator credentialsValidator;*/
 	
-	@RequestMapping(value = "/register", method = RequestMethod.GET) 
+	/*@RequestMapping(value = "/register", method = RequestMethod.GET) 
 	public String showRegisterForm (Model model) {
 		model.addAttribute("user", new User());
 		model.addAttribute("credentials", new Credentials());
-		return "registerUser";
-	}
+		return "registerUser.html";
+	}*/
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET) 
 	public String showLoginForm (Model model) {
@@ -51,12 +51,12 @@ public class AuthenticationController {
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal(); //contengono username, password e ruolo
     	Credentials credentials = credentialsService.getCredentials(userDetails.getUsername()); //recuperiamo le credenziali associate a userDetails
     	if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) { //se è amministratore
-            return "admin/home";
+            return "admin/home.html"; //admin/home
         }
         return "index"; //altrimenti
     }
 	
-    @RequestMapping(value = { "/register" }, method = RequestMethod.POST)
+    /*@RequestMapping(value = { "/register" }, method = RequestMethod.POST)
     public String registerUser(@ModelAttribute("user") User user,
                  BindingResult userBindingResult,
                  @ModelAttribute("credentials") Credentials credentials,
@@ -76,5 +76,5 @@ public class AuthenticationController {
             return "registrationSuccessful";
         }
         return "registerUser";
-    }
+    }*/
 }
