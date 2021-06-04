@@ -15,22 +15,27 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(uniqueConstraints=@UniqueConstraint(columnNames={"nome","cognome"}))
 public class Artista {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
+	@Column(nullable = false)
 	private String cognome;
 
 	@Column(nullable = false)
 	private String nome;
 
 	@Column(nullable = false)
-	private LocalDate DataDiNascita;
+	private LocalDate dataDiNascita;
 
 	@Column(nullable = false)
-	private String LuogoDiNascita;
+	private String luogoDiNascita;
 
-	private String LuogoDiMorte;
-	private LocalDate DataDiMorte;
+	private String luogoDiMorte;
+	private LocalDate dataDiMorte;
+
+	private String biografia;
 
 	@Column(nullable = false)
 	private String nazionalità;
@@ -39,18 +44,24 @@ public class Artista {
 	private List<Opera> opere;
 
 
-
-	public String getLuogoDiMorte() {
-		return LuogoDiMorte;
-	}
-	public void setLuogoDiMorte(String luogoDiMorte) {
-		LuogoDiMorte = luogoDiMorte;
-	}
-	public LocalDate getDataDiMorte() {
-		return DataDiMorte;
-	}
-	public void setDataDiMorte(LocalDate dataDiMorte) {
-		DataDiMorte = dataDiMorte;
-	}
+	public void setNome(String nome) {this.nome = nome;}
+	public void setCognome(String cognome) {this.cognome = cognome;}
+	public void setDataDiNascita(LocalDate dataDiNascita) {this.dataDiNascita = dataDiNascita;}
+	public void setLuogoDiNascita(String luogoDiNascita) {this.luogoDiNascita = luogoDiNascita;}
+	public void setNazionalità(String nazionalità) {this.nazionalità = nazionalità;}
+	public void setLuogoDiMorte(String luogoDiMorte) {this.luogoDiMorte = luogoDiMorte;}
+	public void setDataDiMorte(LocalDate dataDiMorte) {this.dataDiMorte = dataDiMorte;}
+	public void setBiografia(String biografia) {this.biografia = biografia;}
+	
+	public Long getId() {return id;}
+	public String getNome() {return nome;}
+	public String getCognome() {return cognome;}
+	public LocalDate getDataDiNascita() {return dataDiNascita;}
+	public String getLuogoDiNascita() {return luogoDiNascita;}
+	public String getNazionalità() {return nazionalità;}
+	public List<Opera> getOpere() {return opere;}
+	public String getLuogoDiMorte() {return this.luogoDiMorte;}
+	public LocalDate getDataDiMorte() {return this.dataDiMorte;}
+	public String getBiografia() {return biografia;}
 
 }

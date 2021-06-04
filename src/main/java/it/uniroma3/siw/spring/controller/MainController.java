@@ -18,15 +18,6 @@ public class MainController {
 			return "index";
 	}
 	
-	@RequestMapping(value = {"/artisti"}, method = RequestMethod.GET)
-	public String getArtisti(Model model) {
-			return "artisti.html";
-	}
-	
-	@RequestMapping(value = {"/collezioni"}, method = RequestMethod.GET)
-	public String getCollezioni(Model model) {
-			return "collezioni.html";
-	}
 	
 	@RequestMapping(value = {"/informazioni"}, method = RequestMethod.GET)
 	public String getInformazioni(Model model) {
@@ -37,9 +28,8 @@ public class MainController {
 	public String getRisorse(Model model) {
 			return "risorse.html";
 	}
+	
 
-	
-	
 	
 	/**
 	 * Questi metodi gestiscono la navigazione delle pagine amministratore
@@ -47,21 +37,14 @@ public class MainController {
 	
 	@RequestMapping(value = {"/admin/gestisciOpere"}, method = RequestMethod.GET)
 	public String getGestisciOpere(Model model) {
-			return "gestisciOpere.html";
+			return "admin/gestisciOpere";
 	}
 	
 	@RequestMapping(value = {"/admin/gestisciArtisti"}, method = RequestMethod.GET)
 	public String getGestisciArtisti(Model model) {
-			return "gestisciArtisti.html";
+			return "admin/gestisciArtisti";
 	}
 	
-	@RequestMapping(value = {"/admin/gestisciCuratori"}, method = RequestMethod.GET)
-	public String getGestisciCuratori(Model model) {
-			return "gestisciCuratori.html";
-	}
 	
-	@RequestMapping(value = {"/admin/gestisciCollezioni"}, method = RequestMethod.GET)
-	public String getGestisciCollezioni(Model model) {
-			return "gestisciCollezioni.html";
-	}
+
 }

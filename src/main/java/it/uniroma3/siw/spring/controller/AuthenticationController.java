@@ -47,14 +47,17 @@ public class AuthenticationController {
 	
     @RequestMapping(value = "/default", method = RequestMethod.GET)
     public String defaultAfterLogin(Model model) {
-        
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal(); //contengono username, password e ruolo
     	Credentials credentials = credentialsService.getCredentials(userDetails.getUsername()); //recuperiamo le credenziali associate a userDetails
     	if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) { //se è amministratore
-            return "admin/home.html"; //admin/home
+            return "admin/home"; //admin/home
         }
         return "index"; //altrimenti
     }
+    
+    
+    
+    
 	
     /*@RequestMapping(value = { "/register" }, method = RequestMethod.POST)
     public String registerUser(@ModelAttribute("user") User user,

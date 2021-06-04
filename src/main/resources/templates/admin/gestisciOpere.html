@@ -39,34 +39,34 @@
 					</div>
 					<div class="modal-body">
 
-						<form>
+						<form th:action="@{/gestisciOpere}" method="POST" th:object="${opera}">
 							<div class="form-floating mb-3">
-								<input type="email" class="form-control" id="floatingInput"
-									placeholder="titolo"> <label for="floatingInput">titolo</label>
+								<input type="text" class="form-control" id="floatingInput" placeholder="titolo" th:field="*{nome}"> 
+								<label for="floatingInput">titolo</label>
 							</div>
 							<div class="input-group mb-3">
-								<input type="file" class="form-control" id="inputGroupFile02">
+								<input type="image" class="form-control" id="inputGroupFile02">
 								<label class="input-group-text" for="inputGroupFile02">Upload</label>
 							</div>
 							<div class="form-floating mb-3">
-								<input type="email" class="form-control" id="floatingInput"
-									placeholder="0000"> <label for="floatingInput">anno</label>
+								<input type="number" class="form-control" id="floatingInput" placeholder="0000"> 
+								<label for="floatingInput">anno</label>
 							</div>
 
 							<div class="form-floating mb-3">
-								<input type="email" class="form-control" id="floatingInput"
-									placeholder="descrizione"> <label for="floatingInput">descrizione</label>
+								<input type="text" class="form-control" id="floatingInput" placeholder="descrizione"> 
+								<label for="floatingInput">descrizione</label>
 							</div>
 
 							<div class="form-floating mb-3">
-								<input type="email" class="form-control" id="floatingInput"
-									placeholder="pippo"> <label for="floatingInput">artista</label>
+								<input type="text" class="form-control" id="floatingInput" placeholder="pippo"> 
+								<label for="floatingInput">artista</label>
 							</div>
 
 
 							<div class="form-floating mb-3">
-								<input type="email" class="form-control" id="floatingInput"
-									placeholder="collezione"> <label for="floatingInput">collezione</label>
+								<input type="text" class="form-control" id="floatingInput" placeholder="collezione"> 
+								<label for="floatingInput">collezione</label>
 							</div>
 
 							<button type="submit" class="btn btn-primary">Registra</button>
