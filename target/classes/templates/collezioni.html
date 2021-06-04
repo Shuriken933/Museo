@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='collezioni')"></head>
+<body class="collezioni">
+
+	<!-- inizio MENU -->
+	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+
+	<!-- inizio HERO -->
+	<div class="container mb-5">
+		<header class="mb-4">
+			<h1 class="text-center">Collezioni</h1>
+		</header>
+	</div>
+	<!-- inizio HERO -->
+
+
+	<main class="container">
+		<!-- inizio Collezioni -->
+
+		<!-- inizio TABELLA -->
+		<h2>
+			<a href="collezione.html">Nome della collezione</a> <span>di
+				Otto</span>
+		</h2>
+		<table class="table table-striped mb-5">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">opera</th>
+					<th scope="col">artista</th>
+					<th scope="col">miniatura</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Notti di inverno</td>
+					<td>Otto</td>
+					<td>**img**</td>
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>**img**</td>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td colspan="2">Larry the Bird</td>
+					<td>**img**</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- fine TABELLA -->
+
+		<!-- inizio TABELLA -->
+		<h2>
+			<a href="collezione.html">Nome della collezione</a> <span>di
+				Otto</span>
+		</h2>
+		<table class="table table-striped mb-5">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">opera</th>
+					<th scope="col">artista</th>
+					<th scope="col">miniatura</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Notti di inverno</td>
+					<td>Otto</td>
+					<td>**img**</td>
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>**img**</td>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td colspan="2">Larry the Bird</td>
+					<td>**img**</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- fine TABELLA -->
+
+		<!-- inizio TABELLA -->
+		<h2>
+			<a href="collezione.html">Nome della collezione</a> <span>di
+				Otto</span>
+		</h2>
+		<table class="table table-striped mb-5">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">opera</th>
+					<th scope="col">artista</th>
+					<th scope="col">miniatura</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Notti di inverno</td>
+					<td>Otto</td>
+					<td>**img**</td>
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>**img**</td>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td colspan="2">Larry the Bird</td>
+					<td>**img**</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- fine TABELLA -->
+		<!-- fine Collezioni -->
+	</main>
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+
+	<th:block th:replace="fragments/base.html :: script"></th:block>
+</body>
+</html>

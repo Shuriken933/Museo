@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='Login')"></head>
+<body>
+
+	<!-- inizio MENU -->
+	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+	<header class="container">
+		<h1>Museo dei Quadri</h1>
+		<p>Il museo con più quadri al mondo</p>
+	</header>
+
+	<!-- inizio FORM LOGIN -->
+	<main class="container">
+	
+		<form th:action="@{/login}" method="POST">
+			<div class="mb-3">
+				<label for="exampleInputEmail1" class="form-label">username</label>
+				<input name="username" type="text" class="form-control"
+					id="exampleInputEmail1" required>
+			</div>
+			<div class="mb-3">
+				<label for="exampleInputPassword1" class="form-label">password</label>
+				<input name="password" type="password" class="form-control"
+					id="exampleInputPassword1" required>
+			</div>
+			<button type="submit" class="btn btn-primary">Login</button>
+		</form>
+
+	</main>
+	<!-- inizio FORM LOGIN -->
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+	
+	<th:block th:replace="fragments/base.html :: script"></th:block>
+
+</body>
+</html>
