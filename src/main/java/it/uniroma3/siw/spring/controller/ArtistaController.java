@@ -23,6 +23,11 @@ public class ArtistaController {
 	
 	/* metodi commentati perhcè nel progetto non è richiesto l'add di un nuovo artista */
 	
+	@RequestMapping(value = {"/admin/gestisciArtisti"}, method = RequestMethod.GET)
+	public String getGestisciArtisti(Model model) {
+		return "admin/gestisciArtisti";
+	}
+	
 	
     @RequestMapping(value="/admin/addArtista", method = RequestMethod.GET)
     public String addArtista(Model model) {
