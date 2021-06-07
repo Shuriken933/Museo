@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/base.html :: headerfiles(title='SIW')"></head>
+<head th:replace="fragments/base.html :: headerfiles(title='gestisci artista')"></head>
 <body>
 
 	<!-- inizio MENU -->
@@ -21,9 +21,12 @@
 
 		<!-- inizio REGISTRAZIONE CURATORE -->
 		<!-- Button trigger modal -->
-		<a data-bs-toggle="modal" href="#exampleModal"> Registra un	artista </a>
+		<!-- <a data-bs-toggle="modal" href="#exampleModal"> Registra un	artista </a> -->
+		<div>
+			<a href="addArtista">Registra un artista</a>
+   		</div>
 
-		<!-- Modal -->
+		<!-- Modal
 		<div class="modal fade" id="exampleModal" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
@@ -99,7 +102,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- fine REGISTRAZIONE CURATORE -->
+		fine REGISTRAZIONE CURATORE -->
 
 		<h3 class="mt-5">2) Visualizzazione</h3>
 		<!-- inizio TABELLA -->

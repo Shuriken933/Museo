@@ -5,18 +5,29 @@
 <body class="artisti">
 
 	<!-- inizio MENU -->
-	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- <nav th:replace="fragments/base.html :: menu"></nav> -->
 	<!-- fine MENU -->
 
 	<header class="container">
 		<h1>Artisti</h1>
 		<p>Museo dei Quadri</p>
 	</header>
+	
+	
+	<div>
+    	<h4>Lista degli artisti</h4>
+		<ul>
+			<li th:each="artista : ${artisti}">
+				<a href="artista.html" 
+				   th:href="@{'/artista'}" 
+				   th:text="|${artista.nome} ${artista.cognome}|">Paolo Rossi</a>
+			</li>
+		</ul>
+	</div>
 
+	<!-- <main>
 
-	<main>
-
-		<!-- inizio OPERE -->
+		inizio OPERE
 		<div class="container mb-5">
 
 			<div class="row opere-2-colonne">
@@ -80,16 +91,16 @@
 			</div>
 
 		</div>
-		<!-- fine OPERE -->
+		fine OPERE
 
-	</main>
+	</main> -->
 
 
 	<!-- inizio FOOTER -->
-	<footer th:replace="fragments/base.html :: footer"></footer>
-	<!-- fine FOOTER -->
+	<!-- <footer th:replace="fragments/base.html :: footer"></footer>
+	fine FOOTER
 
-	<th:block th:replace="fragments/base.html :: script"></th:block>
+	<th:block th:replace="fragments/base.html :: script"></th:block> -->
 
 </body>
 </html>

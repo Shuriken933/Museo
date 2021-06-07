@@ -21,19 +21,23 @@ public class ArtistaController {
 	@Autowired
 	private ArtistaValidator artistaValidator;
 	
-	@RequestMapping(value = {"/artisti"}, method = RequestMethod.GET)
+	/* metodi commentati perhcè nel progetto non è richiesto l'add di un nuovo artista */
+	
+	
+    @RequestMapping(value="/admin/addArtista", method = RequestMethod.GET)
+    public String addArtista(Model model) {
+    	model.addAttribute("artista", new Artista());
+        return "admin/artistaForm";
+    }
+	
+	@RequestMapping(value = {"artisti"}, method = RequestMethod.GET)
 	public String getArtisti(Model model) {
-			return "artisti.html";
+		model.addAttribute("artisti", this.artistaService.tutti());
+			return "artisti";
 	}
 	
-	/*@RequestMapping(value = {"/admin/gestisciArtisti"}, method = RequestMethod.GET)
-	public String getGestisciArtisti(Model model) {
-		model.addAttribute("artisti", this.artistaService.tutti());
-			return "admin/gestisciArtisti";
-	}*/
 	
-	
-	/*@RequestMapping(value = {"/admin/gestisciArtisti"}, method = RequestMethod.POST)
+	@RequestMapping(value = {"/admin/artista"}, method = RequestMethod.POST)
     public String addArtista(@ModelAttribute("artista") Artista artista, 
     									Model model, BindingResult bindingResult) {
     	this.artistaValidator.validate(artista, bindingResult);
@@ -42,7 +46,8 @@ public class ArtistaController {
             model.addAttribute("artisti", this.artistaService.tutti());
             return "artisti";
         }
-        return "admin/gestisciArtisti";
-    }*/
+//        return "admin/gestisciArtisti";
+        return "admin/artistaForm";
+    }
 
 }

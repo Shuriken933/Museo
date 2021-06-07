@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<header class="text-center">
+		<h2>
+			Registrazione Artista
+		</h2>
+	</header>
+	
+	<div>
+		<h4>Inserisci i dati di un artista</h4>
+	</div>
+	
+	<form th:action="@{/admin/artista}" method="POST" th:object="${artista}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>		
+		<div>
+			<div>
+				<span>Nome:</span>
+				<span><input type="text" th:field="*{nome}" /></span>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>		
+			<div>
+				<span>Cognome:</span>
+				<span><input type="text" th:field="*{cognome}" /></span>
+				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+			</div>
+			<div>
+				<span><button type="submit">Invio</button></span>
+			</div>
+		</div>
+	</form>
+
+</body>
+</html>

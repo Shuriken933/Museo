@@ -26,10 +26,8 @@ public class Artista {
 	@Column(nullable = false)
 	private String nome;
 
-	@Column(nullable = false)
 	private LocalDate dataDiNascita;
 
-	@Column(nullable = false)
 	private String luogoDiNascita;
 
 	private String luogoDiMorte;
@@ -37,7 +35,6 @@ public class Artista {
 
 	private String biografia;
 
-	@Column(nullable = false)
 	private String nazionalità;
 
 	@OneToMany(mappedBy = "artista")
