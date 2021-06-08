@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title='SIW')"> </head>
+<body>
+    <div>
+   		<h2>Sei loggato amministratore</h2>
+    </div>
+    
+    <div>
+		<a th:href="@{/admin/home.html}">Torna alla home</a>
+   	</div>
+    <footer th:replace="fragments/base.html :: footer"></footer>
+</body>
+</html>

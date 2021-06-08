@@ -1,7 +1,5 @@
 package it.uniroma3.siw.spring.service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +34,10 @@ public class CredentialsService {
     @Transactional
     public Credentials saveCredentials(Credentials credentials) {
         credentials.setRole(Credentials.DEFAULT_ROLE);
-        credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword())); //la password viene codificata
+        credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword()));
         return this.credentialsRepository.save(credentials);
     }
+
     
     /*@Transactional
     public void deleteCredentials(String username) {

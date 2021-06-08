@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/base.html :: headerfiles(title='SIW')"></head>
+<head th:replace="fragments/baseAdmin.html :: headerfiles(title='SIW')"></head>
 <body>
 
 	<!-- inizio MENU -->
-	<nav th:replace="fragments/base.html :: menu"></nav>
+	<nav th:replace="fragments/baseAdmin.html :: menu"></nav>
 	<!-- fine MENU -->
 
 	<header class="container text-center">
 		<h2>
-			Gestisci: <strong>Collezioni</strong>
+			Collezioni presenti nel museo:
 		</h2>
 	</header>
 
@@ -18,14 +18,14 @@
 
 	<main class="container">
 
-		<h3>1) Registrazione</h3>
+		<!-- <h3>1) Registrazione</h3>
 
-		<!-- inizio REGISTRAZIONE COLLEZIONE -->
-		<!-- Button trigger modal -->
+		inizio REGISTRAZIONE COLLEZIONE
+		Button trigger modal
 		<a data-bs-toggle="modal" href="#exampleModal"> Registra una
 			collezione </a>
 
-		<!-- Modal -->
+		Modal
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
@@ -52,10 +52,10 @@
 				</div>
 			</div>
 		</div>
-		<!-- fine REGISTRAZIONE COLLEZIONE -->
+		fine REGISTRAZIONE COLLEZIONE -->
 
-		<h3 class="mt-5">2) Visualizzazione</h3>
-		<!-- inizio Collezioni -->
+<!-- 		<h3 class="mt-5">Visualizzazione</h3>
+ -->		<!-- inizio Collezioni -->
 		<div class="accordion" id="accordionExample">
 			<div class="accordion-item">
 				<h2 class="accordion-header" id="headingOne">

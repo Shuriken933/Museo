@@ -19,7 +19,6 @@ public class MainController {
 	}
 	
 	
-	
 	@RequestMapping(value = {"/informazioni"}, method = RequestMethod.GET)
 	public String getInformazioni(Model model) {
 			return "informazioni.html";
@@ -41,8 +40,9 @@ public class MainController {
 			return "admin/gestisciOpere";
 	}
 	
-	
-	
-	
+	@RequestMapping(value = {"/admin/gestisciArtisti"}, method = RequestMethod.GET)
+	public String getGestisciArtisti(Model model) {
+			return "admin/gestisciArtisti";
+	}	
 
 }

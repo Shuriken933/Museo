@@ -6,14 +6,16 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.spring.model.Artista;
 import it.uniroma3.siw.spring.model.Opera;
 import it.uniroma3.siw.spring.repository.OperaRepository;
 
+@Service
 public class OperaService {
 
-	/*@Autowired
+	@Autowired
 	private OperaRepository operaRepository;
 
 	@Transactional
@@ -26,30 +28,30 @@ public class OperaService {
 		return (List<Opera>) operaRepository.findAll();
 	}
 
-	@Transactional
-	public List<Opera> trovaPerAutore(Artista autore) {
-		return operaRepository.findByAutore(autore);
-	}
-
-	@Transactional
-	public List<Opera> trovaPerAnno(LocalDate anno) {
-		return operaRepository.findByAnno(anno);
-	}
-
-	@Transactional
-	public List<Opera> trovaPerTitolo(String titolo) {
-		return operaRepository.findByTitolo(titolo);
-	}
-
-	@Transactional
-	public boolean rimuoviOpera(String nome) {
-		List<Opera> optional = (List<Opera>) operaRepository.findAll();
-		if(optional.size() > 0) {
-			operaRepository.deleteOpera(nome);
-			return true;
-		} 
-		return false;
-	}
+//	@Transactional
+//	public List<Opera> trovaPerAutore(Artista autore) {
+//		return operaRepository.findByAutore(autore);
+//	}
+//
+//	@Transactional
+//	public List<Opera> trovaPerAnno(LocalDate anno) {
+//		return operaRepository.findByAnno(anno);
+//	}
+//
+//	@Transactional
+//	public List<Opera> trovaPerTitolo(String titolo) {
+//		return operaRepository.findByTitolo(titolo);
+//	}
+//
+//	@Transactional
+//	public boolean rimuoviOpera(String nome) {
+//		List<Opera> optional = (List<Opera>) operaRepository.findAll();
+//		if(optional.size() > 0) {
+//			operaRepository.deleteOpera(nome);
+//			return true;
+//		} 
+//		return false;
+//	}
 
 	@Transactional
 	public boolean rimuoviTutteOpere() {
@@ -68,7 +70,7 @@ public class OperaService {
 				return true;
 			else
 				return false;
-		}*/
+		}
 
 
 		//

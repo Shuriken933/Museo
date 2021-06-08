@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/base.html :: headerfiles(title='SIW')"></head>
+<head th:replace="fragments/baseAdmin.html :: headerfiles(title='SIW')"></head>
 <body>
 
 	<!-- inizio MENU -->
-	<nav th:replace="fragments/base.html :: menu"></nav>
+	<nav th:replace="fragments/baseAdmin.html :: menu"></nav>
 	<!-- fine MENU -->
 
 	<header class="container text-center">
@@ -14,20 +14,19 @@
 		</h2>
 	</header>
 
-
-
-
 	<main class="container">
 
 		<h3>1) Registrazione</h3>
 
 		<!-- inizio REGISTRAZIONE CURATORE -->
 		<!-- Button trigger modal -->
-		<a data-bs-toggle="modal" href="#exampleModal"> Registra un'opera
-		</a>
+		<!-- <a data-bs-toggle="modal" href="#exampleModal"> Registra un'opera</a> -->
+		<div>
+			<a href="addOpera">Registra un'opera</a>
+   		</div>
 
 		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1"
+		<!-- <div class="modal fade" id="exampleModal" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
@@ -71,12 +70,11 @@
 
 							<button type="submit" class="btn btn-primary">Registra</button>
 						</form>
-
 					</div>
 
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- fine REGISTRAZIONE CURATORE -->
 
 		<h3 class="mt-5">2) Visualizzazione</h3>

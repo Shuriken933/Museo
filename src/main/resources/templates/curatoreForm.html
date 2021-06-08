@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
+<head th:replace="fragments/base.html :: headerfiles(title='gestisci curatori')"></head>
 <body>
-	<header class="text-center">
-		<h2>
-			Registrazione Artista
-		</h2>
+
+	<header class="container text-center">
+		<h2>Gestisci: <strong>Curatori</strong></h2>
 	</header>
 	
 	<div>
-		<h4>Inserisci i dati di un artista</h4>
+		<h4>Inserisci i dati di un curatore</h4>
 	</div>
-	
-	<form th:action="@{/admin/artista}" method="POST" th:object="${artista}">
+	<form th:action="@{/admin/curatore}" method="POST" th:object="${curatore}">
 		<div th:if="${#fields.hasGlobalErrors()}">
   			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 		</div>		
@@ -36,6 +30,6 @@
 			</div>
 		</div>
 	</form>
-
+	<footer th:replace="fragments/base.html :: footer"></footer>
 </body>
 </html>

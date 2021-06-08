@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+<body>
+	<header class="text-center">
+		<h2>
+			Registrazione Opera
+		</h2>
+	</header>
+	
+	<div>
+		<h4>Inserisci i dati di un'opera:</h4>
+	</div>
+	
+	<form th:action="@{/admin/opera}" method="POST" th:object="${opera}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>		
+		<div>
+			<div>
+				<span>Titolo:</span>
+				<span><input type="text" th:field="*{titolo}" /></span>
+				<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
+			</div>		
+			<div>
+				<span>Anno di realizzazione:</span>
+				<span><input type="text" th:field="*{annoDiRealizzazione}" /></span>
+				<span th:if="${#fields.hasErrors('annoDiRealizzazione')}" th:errors="*{annoDiRealizzazione}"></span>
+			</div>
+			<div>
+				<span>Descrizione:</span>
+				<span><input type="text" th:field="*{descrizione}" /></span>
+				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+			</div>
+			<div>
+				<span><button type="submit">Invio</button></span>
+			</div>
+		</div>
+	</form>
+
+</body>
+</html>

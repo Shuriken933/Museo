@@ -26,10 +26,9 @@ public class CuratoreService {
 		return (List<Curatore>) curatoreRepository.findAll();
 	}
 
-	
 	@Transactional
 	public boolean alreadyExists(Curatore curatore) {
-		List<Curatore> curatori = this.curatoreRepository.findByNomeAndCognome(curatore.getNome(), curatore.getCognome());
+		List<Curatore> curatori = this.curatoreRepository.findByNome(curatore.getNome());
 		if (curatori.size() > 0)
 			return true;
 		else 

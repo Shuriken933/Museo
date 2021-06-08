@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/base.html :: headerfiles(title='gestisci curatori')"></head>
+<head th:replace="fragments/baseAdmin.html :: headerfiles(title='gestisci curatori')"></head>
 <body>
 
 	<!-- inizio MENU -->
-	<nav th:replace="fragments/base.html :: menu"></nav>
+	<nav th:replace="fragments/baseAdmin.html :: menu"></nav>
 	<!-- fine MENU -->
 
 	<header class="container text-center">
@@ -19,10 +19,14 @@
 
 		<!-- inizio REGISTRAZIONE CURATORE -->
 		<!-- Button trigger modal -->
-		<a data-bs-toggle="modal" href="#exampleModal"> Registra un	curatore </a>
+		<!-- <a data-bs-toggle="modal" href="#exampleModal"> Registra un	curatore </a> -->
+		
+		<div>
+			<a href="addCuratore">Registra un curatore</a>
+   		</div>
 
 		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1"	aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<!-- <div class="modal fade" id="exampleModal" tabindex="-1"	aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -31,7 +35,7 @@
 					</div>
 					<div class="modal-body">
 
-						<form action="#" th:action="@{/admin/curatore}" th:object="${curatore}" method="post">
+						<form th:action="@{/admin/gestisciCuratori}" method="POST" th:object="${curatore}">
 							<div th:if="${#fields.hasGlobalErrors()}">
   								<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 							</div>
@@ -54,7 +58,7 @@
 								<div class="col-sm">
 									<div class="form-floating mb-3">
 										<input type="date" th:field="*{dataDiNascita}" class="form-control" id="floatingInput" placeholder="00/00/0000" required> 
-										<label for="floatingInput">data	di nascita</label>
+											<label for="floatingInput">data	di nascita</label>
 									</div>
 								</div>
 								<div class="col-sm">
@@ -81,9 +85,10 @@
 
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- fine REGISTRAZIONE CURATORE -->
 
+		
 		
 
 		<h3 class="mt-5">2) Visualizzazione</h3>
@@ -91,26 +96,49 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col" th:text="#{table.matricola}">matricola</th>
+					<th scope="col">#</th>
 					<th scope="col" th:text="#{table.name}">nome</th>
 					<th scope="col" th:text="#{table.surname}">cognome</th>
 					<th scope="col" th:text="#{table.dateOfBirth}">data nascita</th>
 					<th scope="col" th:text="#{table.birthPlace}">luogo nascita</th>
 					<th scope="col" th:text="#{table.email}">email</th>
 					<th scope="col" th:text="#{table.telephone}">telefono</th>
-					
+					<th scope="col" th:text="#{table.registrationNumber}">matricola</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="curatore : ${curatori}">
-					<th scope="row" th:text="${curatore.matricola}">1</th>
+					<th scope="row">1</th>
 					<td th:text="${curatore.nome}">Mario</td>
 					<td th:text="${curatore.cognome}">Rossi</td>
 					<td th:text="${curatore.dataDiNascita}">06/06/1990</td>
 					<td th:text="${curatore.luogoDiNascita}">Roma</td>
 					<td th:text="${curatore.email}">email@mail.com</td>
 					<td th:text="${curatore.numeroDiTelefono}">0606060606</td>
+					<td>collezioni...</td>
 				</tr>
+				<!-- 
+				<tr>
+					<th scope="row">2</th>
+					<td>Mario</td>
+					<td>Rossi</td>
+					<td>06/06/1990</td>
+					<td>Roma</td>
+					<td>email@mail.com</td>
+					<td>0606060606</td>
+					<td>1564</td>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td>Mario</td>
+					<td>Rossi</td>
+					<td>06/06/1990</td>
+					<td>Roma</td>
+					<td>email@mail.com</td>
+					<td>0606060606</td>
+					<td>1564</td>
+				</tr>
+				 -->
 				
 			</tbody>
 		</table>
