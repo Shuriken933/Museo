@@ -25,20 +25,22 @@ public class ArtistaController {
 	
 	@RequestMapping(value = {"/admin/gestisciArtisti"}, method = RequestMethod.GET)
 	public String getGestisciArtisti(Model model) {
+		model.addAttribute("artisti", this.artistaService.tutti());
+		model.addAttribute("artista", new Artista());
 		return "admin/gestisciArtisti";
 	}
 	
 	
-    @RequestMapping(value="/admin/addArtista", method = RequestMethod.GET)
+    /*@RequestMapping(value="/admin/addArtista", method = RequestMethod.GET)
     public String addArtista(Model model) {
     	model.addAttribute("artista", new Artista());
         return "admin/artistaForm";
-    }
+    }*/
 	
 	@RequestMapping(value = {"artisti"}, method = RequestMethod.GET)
 	public String getArtisti(Model model) {
 		model.addAttribute("artisti", this.artistaService.tutti());
-			return "artisti";
+		return "artisti";
 	}
 	
 	
@@ -49,9 +51,8 @@ public class ArtistaController {
         if (!bindingResult.hasErrors()) {
         	this.artistaService.inserisci(artista);
             model.addAttribute("artisti", this.artistaService.tutti());
-            return "artisti";
+            return "admin/gestisciArtisti";
         }
-//        return "admin/gestisciArtisti";
         return "admin/artistaForm";
     }
 

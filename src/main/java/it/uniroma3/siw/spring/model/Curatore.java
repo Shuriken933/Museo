@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Curatore {
 	
@@ -23,16 +25,13 @@ public class Curatore {
 	@Column(nullable = false)
 	private String cognome;
 	
-	@Column(nullable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataDiNascita;
 	
-	@Column(nullable = false)
 	private String luogoDiNascita;
 	
-	@Column(nullable = false)
 	private String email;
-
-	@Column(nullable = false)
+	
 	private Long numeroDiTelefono;
 
 	@OneToMany(mappedBy = "curatore")

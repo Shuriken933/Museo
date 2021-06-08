@@ -52,7 +52,7 @@ public class Artista {
 	public void setCognome(String cognome) {this.cognome = cognome;}
 	public void setDataDiNascita(LocalDate dataDiNascita) {this.dataDiNascita = dataDiNascita;}
 	public void setLuogoDiNascita(String luogoDiNascita) {this.luogoDiNascita = luogoDiNascita;}
-	public void setNazionalità(String nazionalita) {this.nazionalita = nazionalita;}
+	public void setNazionalita(String nazionalita) {this.nazionalita = nazionalita;}
 	public void setLuogoDiMorte(String luogoDiMorte) {this.luogoDiMorte = luogoDiMorte;}
 	public void setDataDiMorte(LocalDate dataDiMorte) {this.dataDiMorte = dataDiMorte;}
 	public void setBiografia(String biografia) {this.biografia = biografia;}
@@ -62,7 +62,7 @@ public class Artista {
 	public String getCognome() {return cognome;}
 	public LocalDate getDataDiNascita() {return dataDiNascita;}
 	public String getLuogoDiNascita() {return luogoDiNascita;}
-	public String getNazionalità() {return nazionalita;}
+	public String getNazionalita() {return nazionalita;}
 	public List<Opera> getOpere() {return opere;}
 	public String getLuogoDiMorte() {return this.luogoDiMorte;}
 	public LocalDate getDataDiMorte() {return this.dataDiMorte;}
