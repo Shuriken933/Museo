@@ -5,7 +5,7 @@
 <body>
 
 	<!-- inizio MENU -->
-	<nav th:replace="fragments/base.html :: menu"></nav>
+	<nav th:replace="fragments/base.html :: menu-admin"></nav>
 	<!-- fine MENU -->
 
 	<header class="container text-center">
@@ -35,14 +35,18 @@
 					</div>
 					<div class="modal-body">
 
-						<form>
+						<form action="#" th:action="@{/admin/collezione}" th:object="${collezione}" method="post">
 							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label">nome	della collezione</label> 
+								<label for="exampleInputEmail1" class="form-label" th:field="*{nome}">nome	della collezione</label> 
 								<input type="text" class="form-control">
 							</div>
 							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label">nome	del curatore</label> 
+								<label for="exampleInputEmail1" class="form-label" th:field="*{descrizione}">descrizione</label> 
 								<input type="text" class="form-control">
+							</div>
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label" th:field="*{curatore}">id del curatore</label> 
+								<input type="number" class="form-control">
 							</div>
 							<button type="submit" class="btn btn-primary">Registra</button>
 						</form>
@@ -57,12 +61,12 @@
 		<h3 class="mt-5">2) Visualizzazione</h3>
 		<!-- inizio Collezioni -->
 		<div class="accordion" id="accordionExample">
-			<div class="accordion-item">
+			<div class="accordion-item" th:each="collezione : ${collezioni}">
 				<h2 class="accordion-header" id="headingOne">
-					<button class="accordion-button" type="button"
-						data-bs-toggle="collapse" data-bs-target="#collapseOne"
-						aria-expanded="true" aria-controls="collapseOne">
-						Notti di inverno <span> di Otto</span>
+					<button class="accordion-button" type="button" data-bs-toggle="collapse" 
+					data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" th:text="${curatore.nome}">
+						Notti di inverno 
+						<span th:text="${collezione.curatore}">di Otto</span>
 					</button>
 				</h2>
 				<div id="collapseOne" class="accordion-collapse collapse show"
