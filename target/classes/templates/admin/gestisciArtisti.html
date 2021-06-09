@@ -5,7 +5,7 @@
 <body>
 
 	<!-- inizio MENU -->
-	<nav th:replace="fragments/base.html :: menu"></nav>
+	<nav th:replace="fragments/base.html :: menu-admin"></nav> 
 	<!-- fine MENU -->
 
 	<header class="container text-center">
@@ -18,83 +18,100 @@
 	<main class="container">
 
 		<h3>1) Registrazione</h3>
-
-		<!-- inizio REGISTRAZIONE CURATORE -->
-		<!-- Button trigger modal -->
-		<!-- <a data-bs-toggle="modal" href="#exampleModal"> Registra un	artista </a> -->
+		
+		<!-- 
 		<div>
 			<a href="addArtista">Registra un artista</a>
    		</div>
+		 -->
+		
 
-		<!-- Modal
+		<!-- inizio REGISTRAZIONE CURATORE -->
+		<!-- Button trigger modal -->
+		 <a data-bs-toggle="modal" href="#exampleModal"> Registra un artista </a> 
+		
+
+		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Registrazione
-							dell'artista</h5>
+						<h5 class="modal-title" id="exampleModalLabel">Registrazione dell'artista</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal"	aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 
 						<form th:action="@{/admin/artista}" method="POST" th:object="${artista}">
+
+							<div th:if="${#fields.hasGlobalErrors()}">
+								<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+							</div>
+
 							<div class="row">
 								<div class="col-sm">
 									<div class="form-floating mb-3">
-										<input type="text" class="form-control" id="floatingInput"	placeholder="nome" th:field="*{nome}" required> 
+										<input type="text" class="form-control" id="floatingInput" placeholder="nome" th:field="*{nome}" required> 
 										<label for="floatingInput">nome</label>
 									</div>
 								</div>
 								<div class="col-sm">
 									<div class="form-floating mb-3">
-										<input type="text" class="form-control" id="floatingInput"	placeholder="cognome" th:field="*{cognome}" required> 
+										<input type="text" class="form-control" id="floatingInput" placeholder="cognome" th:field="*{cognome}" required> 
 										<label for="floatingInput">cognome</label>
 									</div>
 								</div>
 							</div>
-
+							
 							<div class="row">
 								<div class="col-sm">
 									<div class="form-floating mb-3">
-										<input type="date" class="form-control" id="floatingInput"	placeholder="00/00/0000" th:field="*{dataDiNascita}"> 
-										<label for="floatingInput">data	di nascita</label>
+										<input type="date" class="form-control" id="floatingInput" placeholder="00/00/0000" th:field="*{dataDiNascita}"> 
+										<label for="floatingInput">data di nascita</label>
 									</div>
 								</div>
 								<div class="col-sm">
 									<div class="form-floating mb-3">
-										<input type="text" class="form-control" id="floatingInput"	placeholder="luogo_di_nascita" th:field="*{luogoDiNascita}"> 
+										<input type="text" class="form-control" id="floatingInput" placeholder="luogo_di_nascita" th:field="*{luogoDiNascita}">
 										<label for="floatingInput">luogo di nascita</label>
 									</div>
 								</div>
 							</div>
-
+							
 							<div class="row">
 								<div class="col-sm">
 									<div class="form-floating mb-3">
-										<input type="date" class="form-control" id="floatingInput"	placeholder="00/00/0000" th:field="*{dataDiMorte}"> 
-										<label for="floatingInput">data	di morte</label>
+										<input type="date" class="form-control" id="floatingInput" placeholder="00/00/0000" th:field="*{dataDiMorte}"> 
+										<label for="floatingInput">data di morte</label>
 									</div>
 								</div>
 								<div class="col-sm">
 									<div class="form-floating mb-3">
-										<input type="text" class="form-control" id="floatingInput"	placeholder="luogo_di_morte" th:field="*{luogoDiMorte}"> 
+										<input type="text" class="form-control" id="floatingInput" placeholder="luogo_di_morte" th:field="*{luogoDiMorte}"> 
 										<label for="floatingInput">luogo di morte</label>
 									</div>
 								</div>
 							</div>
+							
+							
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="floatingInput" placeholder="biografia" th:field="*{biografia}"> 
+								<label for="floatingInput">biografia</label>
+							</div>
+							
+							
 
+							
+							<!-- 
+							
 							<div class="form-floating mb-3">
 								<input type="text" class="form-control" id="floatingInput"	placeholder="italia" th:field="*{nazionalità}"> 
 								<label for="floatingInput">nazionalità</label>
 							</div>
-
-							<div class="form-floating mb-3">
-								<input type="email" class="form-control" id="floatingInput"	placeholder="italia"> 
-								<label for="floatingInput">biografia</label>
-							</div>
+							 -->
 
 							<button type="submit" class="btn btn-primary">Registra</button>
+							
 						</form>
 
 					</div>
@@ -102,7 +119,7 @@
 				</div>
 			</div>
 		</div>
-		fine REGISTRAZIONE CURATORE -->
+		<!-- fine REGISTRAZIONE CURATORE -->
 
 		<h3 class="mt-5">2) Visualizzazione</h3>
 		<!-- inizio TABELLA -->
@@ -111,12 +128,15 @@
 				<tr>
 					<th scope="col">#</th>
 					<th scope="col">nome & cognome</th>
-					<!-- <th scope="col">cognome</th> -->
 					<th scope="col">data nascita</th>
 					<th scope="col">luogo nascita</th>
 					<th scope="col">data morte</th>
 					<th scope="col">luogo morte</th>
+					
+					<!-- 
 					<th scope="col">nazionalità</th>
+					 -->
+					
 					<th scope="col">biografia</th>
 				</tr>
 			</thead>
@@ -133,55 +153,23 @@
 					<td th:text="${artista.luogoDiNascita}">Roma</td>
 					<td th:text="${artista.dataDiMorte}">06/06/2990</td>
 					<td th:text="${artista.luogoDiMorte}">Milano</td>
-					<td th:text="${artista.nazionalità}">Italia</td>
+					
+
+					
+					<td th:text="${artista.biografia}">biografia</td>
+					
+					<!-- 
+					<td th:text="${artista.nazionalita}">Italia</td>
+					
 					<td >
 						<ul th:each="opera : ${artisti.opere}">
 							<li></li>
 						</ul>
 					</td>
+					 -->
+					
 				</tr>
-
-				<tr>
-					<th scope="row">statico</th>
-					<td>Mario Rossi</td>
-					<td>06/06/1990</td>
-					<td>Roma</td>
-					<td>06/06/2990</td>
-					<td>Milano</td>
-					<td>Italia</td>
-					<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat
-						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat
-						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">statico</th>
-					<td>Mario Rossi</td>
-					<td>06/06/1990</td>
-					<td>Roma</td>
-					<td>06/06/2990</td>
-					<td>Milano</td>
-					<td>Italia</td>
-					<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat
-						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</td>
-				</tr>
+				
 			</tbody>
 		</table>
 		<!-- fine TABELLA -->

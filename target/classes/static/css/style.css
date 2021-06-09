@@ -181,12 +181,12 @@ li.nav-item.dropdown::marker{content: '';} /*rende invisibile una segnatura*/
 }
 
 .panel--left{
-  right: -80px;
-  top: 20px;
+  /*right: -80px;
+  top: 20px;*/
 }
 .panel--right{
-  left: -80px;
-  top: 20px;
+  /*left: -80px;
+  top: 20px;*/
 }
 
 .card-img-top{
