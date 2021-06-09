@@ -39,6 +39,8 @@ public class CredentialsService {
         credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword())); //la password viene codificata
         return this.credentialsRepository.save(credentials);
     }
+   
+    
     
     /*@Transactional
     public void deleteCredentials(String username) {

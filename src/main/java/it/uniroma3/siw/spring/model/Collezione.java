@@ -14,9 +14,12 @@ import javax.persistence.OneToMany;
 public class Collezione {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	/*@GeneratedValue(strategy = GenerationType.AUTO)*/
 	@Column(unique = true, nullable = false)
 	private String nome;
+	
+	
+	private String aliasNome;
 
 	@Column
 	private String descrizione;
@@ -28,11 +31,16 @@ public class Collezione {
 	private Curatore curatore;
 	
 	
-	public String getNome() {
-		return nome;
-	}
+	public String getNome() {return nome;}
+	public String getAliasNome() {
+		aliasNome = nome.replaceAll("\\s+", "");
+		return aliasNome;
+		}
+	public String getDescrizione() {return descrizione;}
+	public Curatore getCuratore() {return curatore;}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+	public void setNome(String nome) {this.nome = nome;}
+	public void setAliasNome(String nome) {this.aliasNome = nome.replaceAll("\\s+", "");}
+	public void setDescrizione(String descrizione) {this.descrizione = descrizione;}
+	public void setCuratore(Curatore curatore) {this.curatore = curatore;}
 }

@@ -37,7 +37,7 @@ public class ArtistaController {
         return "admin/artistaForm";
     }*/
 	
-	@RequestMapping(value = {"artisti"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"artisti", "/admin/artisti"}, method = RequestMethod.GET)
 	public String getArtisti(Model model) {
 		model.addAttribute("artisti", this.artistaService.tutti());
 		return "artisti";

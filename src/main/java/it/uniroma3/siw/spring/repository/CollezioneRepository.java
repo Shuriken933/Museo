@@ -9,10 +9,10 @@ import it.uniroma3.siw.spring.model.Curatore;
 
 public interface CollezioneRepository extends CrudRepository<Collezione, String> {
 	
-	/*public List<Collezione> deleteCollezione(String nome);
+	/*public List<Collezione> deleteCollezione(String nome);*/
 	
 	public List<Collezione> findByCuratore(Curatore curatore);
 	
-	public List<Collezione> findByNome(String nome);*/
+	public List<Collezione> findByNome(String nome);
 
 }

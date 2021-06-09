@@ -34,39 +34,16 @@ public class Credentials {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+	public void setId(Long id) {this.id = id;}
+	public void setUsername(String username) {this.username = username;}
+	public void setPassword(String password) {this.password = password;}
+	public void setRole(String role) {this.role = role;}
+	public void setUser(User user) {this.user = user;}
 
-	public String getUsername() {
-		return username;
-	}
+	public String getUsername() {return username;}
+	public String getPassword() {return password;}
+	public String getRole() {return role;}
+	public User getUser() {return user;}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 }

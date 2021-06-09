@@ -6,14 +6,16 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.spring.model.Collezione;
 import it.uniroma3.siw.spring.model.Curatore;
 import it.uniroma3.siw.spring.repository.CollezioneRepository;
 
+@Service
 public class CollezioneService {
 	
-	/*@Autowired
+	@Autowired
 	private CollezioneRepository collezioneRepository;
 	
 	@Transactional
@@ -36,7 +38,7 @@ public class CollezioneService {
 		return collezioneRepository.findByCuratore(curatore);
 	}
 	
-	@Transactional
+	/*@Transactional
 	public boolean rimuoviCollezione(String nome) {
 		List<Collezione> optional = (List<Collezione>) collezioneRepository.findAll();
 		if(optional.size() > 0) {
@@ -44,7 +46,7 @@ public class CollezioneService {
 			return true;
 		}
 		return false;
-	}
+	}*/
 	
 	@Transactional
 	public Collezione collezionePerNome(String nome) {
@@ -62,6 +64,6 @@ public class CollezioneService {
 			return true;
 		else
 			return false;
-	}*/
+	}
 
 }
