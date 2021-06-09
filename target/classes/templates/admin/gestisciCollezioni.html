@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/base.html :: headerfiles(title='SIW')"></head>
+<head th:replace="fragments/base.html :: headerfiles(title='gestisci collezioni')"></head>
 <body>
 
 	<!-- inizio MENU -->
-	<nav th:replace="fragments/base.html :: menu-admin"></nav>
+	<nav th:replace="fragments/base.html :: menu"></nav>
 	<!-- fine MENU -->
 
 	<header class="container text-center">
@@ -22,8 +22,7 @@
 
 		<!-- inizio REGISTRAZIONE COLLEZIONE -->
 		<!-- Button trigger modal -->
-		<a data-bs-toggle="modal" href="#exampleModal"> Registra una
-			collezione </a>
+		<a data-bs-toggle="modal" href="#exampleModal"> Registra una collezione </a>
 
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -37,17 +36,32 @@
 
 						<form action="#" th:action="@{/admin/collezione}" th:object="${collezione}" method="post">
 							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label" th:field="*{nome}">nome	della collezione</label> 
-								<input type="text" class="form-control">
+								<label for="exampleInputEmail1" class="form-label">nome	della collezione</label> 
+								<input type="text" class="form-control" th:field="*{nome}" required>
 							</div>
+							
 							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label" th:field="*{descrizione}">descrizione</label> 
-								<input type="text" class="form-control">
+								<label for="exampleInputEmail1" class="form-label">descrizione</label> 
+								<input type="text" class="form-control" th:field="*{descrizione}">
 							</div>
-							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label" th:field="*{curatore}">id del curatore</label> 
-								<input type="number" class="form-control">
+							
+							
+							
+							<div class="form-group mb-3">
+								<label class="col-form-label">curatore</label> 
+								<div class="col-sm-8">
+								<select class="form-control" th:field="*{curatore}" required>
+								 
+								 	<th:block th:each="singoloCuratore : ${curatori}">
+										<option th:text="|${singoloCuratore.nome}  ${singoloCuratore.cognome}|" th:value=${singoloCuratore.matricola} />
+									</th:block>
+									
+								</select>
+								</div>
+								
 							</div>
+							
+							 
 							<button type="submit" class="btn btn-primary">Registra</button>
 						</form>
 
@@ -57,24 +71,29 @@
 			</div>
 		</div>
 		<!-- fine REGISTRAZIONE COLLEZIONE -->
+		
 
 		<h3 class="mt-5">2) Visualizzazione</h3>
 		<!-- inizio Collezioni -->
 		<div class="accordion" id="accordionExample">
+		
 			<div class="accordion-item" th:each="collezione : ${collezioni}">
-				<h2 class="accordion-header" id="headingOne">
-					<button class="accordion-button" type="button" data-bs-toggle="collapse" 
-					data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" th:text="${curatore.nome}">
-						Notti di inverno 
-						<span th:text="${collezione.curatore}">di Otto</span>
-					</button>
+				<h2 class="accordion-header" th:id="|heading-|+|${collezione.aliasNome}|">
+					 <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+					th:data-bs-target="|#|+|${collezione.aliasNome}|" aria-expanded="true" th:aria-controls="${collezione.aliasNome}" th:text="${collezione.nome}">Notti di inverno</button>
 				</h2>
-				<div id="collapseOne" class="accordion-collapse collapse show"
-					aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+				<div th:id="${collezione.aliasNome}" class="accordion-collapse collapse"	th:aria-labelledby="|heading-|+|${collezione.aliasNome}|" data-bs-parent="#accordionExample">
 					<div class="accordion-body">
 						<div class="accordion-body">
 							<!-- inizio TABELLA -->
 							<table class="table table-striped">
+							
+							<p class="credits">
+								<span class="credits__a-cura-di"> a cura di </span>
+								<span class="credits__curatore" th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|">Otto</span>
+							</p>
+							
+								<p th:text="${collezione.descrizione}">descrizione</p>
 								<thead>
 									<tr>
 										<th scope="col">#</th>
@@ -84,12 +103,15 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+								<!-- 
+								<tr th:each="opera : ${listaOpere}">
 										<th scope="row">1</th>
-										<td>Notti di inverno</td>
-										<td>Otto</td>
+										<td th:text="${opera.nome}">Notti di inverno</td>
+										<td th:text="${opera.artista}">Otto</td>
 										<td>**img**</td>
 									</tr>
+								 -->
+									
 									<tr>
 										<th scope="row">2</th>
 										<td>Jacob</td>
@@ -108,100 +130,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="accordion-item">
-				<h2 class="accordion-header" id="headingTwo">
-					<button class="accordion-button collapsed" type="button"
-						data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-						aria-expanded="false" aria-controls="collapseTwo">
-						Notti di inverno <span> di Otto</span>
-					</button>
-				</h2>
-				<div id="collapseTwo" class="accordion-collapse collapse"
-					aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-					<div class="accordion-body">
-						<div class="accordion-body">
-							<!-- inizio TABELLA -->
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th scope="col">#</th>
-										<th scope="col">opera</th>
-										<th scope="col">artista</th>
-										<th scope="col">miniatura</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">1</th>
-										<td>Notti di inverno</td>
-										<td>Otto</td>
-										<td>**img**</td>
-									</tr>
-									<tr>
-										<th scope="row">2</th>
-										<td>Jacob</td>
-										<td>Thornton</td>
-										<td>**img**</td>
-									</tr>
-									<tr>
-										<th scope="row">3</th>
-										<td colspan="2">Larry the Bird</td>
-										<td>**img**</td>
-									</tr>
-								</tbody>
-							</table>
-							<!-- fine TABELLA -->
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="accordion-item">
-				<h2 class="accordion-header" id="headingThree">
-					<button class="accordion-button collapsed" type="button"
-						data-bs-toggle="collapse" data-bs-target="#collapseThree"
-						aria-expanded="false" aria-controls="collapseThree">
-						Notti di inverno <span> di Otto</span>
-					</button>
-				</h2>
-				<div id="collapseThree" class="accordion-collapse collapse"
-					aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-					<div class="accordion-body">
-						<div class="accordion-body">
-							<!-- inizio TABELLA -->
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th scope="col">#</th>
-										<th scope="col">opera</th>
-										<th scope="col">artista</th>
-										<th scope="col">miniatura</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">1</th>
-										<td>Notti di inverno</td>
-										<td>Otto</td>
-										<td>**img**</td>
-									</tr>
-									<tr>
-										<th scope="row">2</th>
-										<td>Jacob</td>
-										<td>Thornton</td>
-										<td>**img**</td>
-									</tr>
-									<tr>
-										<th scope="row">3</th>
-										<td colspan="2">Larry the Bird</td>
-										<td>**img**</td>
-									</tr>
-								</tbody>
-							</table>
-							<!-- fine TABELLA -->
-						</div>
-					</div>
-				</div>
-			</div>
+			
+			
 		</div>
 		<!-- fine Collezioni -->
 

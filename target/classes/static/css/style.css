@@ -40,6 +40,7 @@ p{font-size: 1rem; line-height: 1.65;}
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
 }
+.navbar-nav{width: 100%;}
 .navbar-light .navbar-toggler {
     border: 2px solid black;
 }
@@ -53,7 +54,7 @@ li.nav-item.dropdown::marker{content: '';} /*rende invisibile una segnatura*/
 .nav-item:first-child{ /*solo al primo .nav-item */
   border-left: 2px solid #212529;
 }
-.nav-item-administrator{margin-left: 100%;}
+.nav-item-administrator{margin-left: auto;}
 
 .navbar-brand{
   margin-right: 50px;
@@ -249,7 +250,7 @@ footer ul li{
 /* ! -------------------- */
 /* ! 2) PAGINE */
 
-/* ! - Artista */
+/* ! Artista */
 .artista h1{font-size: 5rem; line-height: 0.9; margin-bottom: 1.25rem ;}
 .artista .background-text{
   position: fixed;
@@ -259,20 +260,31 @@ footer ul li{
   z-index: -1;
 }
 
-/* ! - Opera */
+/* ! Opera */
 .opera img{
   object-fit: cover;
   object-position: center;
 }
 
-/* ! - Collezione */
+/* ! Collezione */
 .collezione h1{font-size: 6rem;}
 
-/* ! - gestisciCollezioni */
+/* ! gestisciCollezioni */
 .accordion-button span{margin-left: 10px; font-size: 1rem; opacity: 0.6;}
-.accordion-button:not(.collapsed) {
-    background-color: #dcd8d1;
-  }
+.accordion-button:not(.collapsed) {background-color: #dcd8d1;}
+
+.credits .credits__a-cura-di{
+  font-style: italic;
+  font-size: 0.8rem;
+  margin-right: 5px;
+}
+
+.credits .credits__curatore{
+  font-weight: 600;
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+
 
 
 

@@ -19,116 +19,64 @@
 
 
 	<main class="container">
+
+		<!-- inizio TABELLA -->
+
 		<!-- inizio Collezioni -->
-
-		<!-- inizio TABELLA -->
-		<h2>
-			<a href="collezione.html">Nome della collezione</a> <span>di
-				Otto</span>
-		</h2>
-		<table class="table table-striped mb-5">
-			<thead>
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">opera</th>
-					<th scope="col">artista</th>
-					<th scope="col">miniatura</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Notti di inverno</td>
-					<td>Otto</td>
-					<td>**img**</td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>**img**</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td colspan="2">Larry the Bird</td>
-					<td>**img**</td>
-				</tr>
-			</tbody>
-		</table>
-		<!-- fine TABELLA -->
-
-		<!-- inizio TABELLA -->
-		<h2>
-			<a href="collezione.html">Nome della collezione</a> <span>di
-				Otto</span>
-		</h2>
-		<table class="table table-striped mb-5">
-			<thead>
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">opera</th>
-					<th scope="col">artista</th>
-					<th scope="col">miniatura</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Notti di inverno</td>
-					<td>Otto</td>
-					<td>**img**</td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>**img**</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td colspan="2">Larry the Bird</td>
-					<td>**img**</td>
-				</tr>
-			</tbody>
-		</table>
-		<!-- fine TABELLA -->
-
-		<!-- inizio TABELLA -->
-		<h2>
-			<a href="collezione.html">Nome della collezione</a> <span>di
-				Otto</span>
-		</h2>
-		<table class="table table-striped mb-5">
-			<thead>
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">opera</th>
-					<th scope="col">artista</th>
-					<th scope="col">miniatura</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Notti di inverno</td>
-					<td>Otto</td>
-					<td>**img**</td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>**img**</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td colspan="2">Larry the Bird</td>
-					<td>**img**</td>
-				</tr>
-			</tbody>
-		</table>
-		<!-- fine TABELLA -->
+		<div class="accordion" id="accordionExample">
+		
+			<div class="accordion-item" th:each="collezione : ${collezioni}">
+				<h2 class="accordion-header" th:id="|heading-|+|${collezione.aliasNome}|">
+					 <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+					th:data-bs-target="|#|+|${collezione.aliasNome}|" aria-expanded="true" th:aria-controls="${collezione.aliasNome}" th:text="${collezione.nome}">Notti di inverno</button>
+				</h2>
+				<div th:id="${collezione.aliasNome}" class="accordion-collapse collapse"	th:aria-labelledby="|heading-|+|${collezione.aliasNome}|" data-bs-parent="#accordionExample">
+					<div class="accordion-body">
+						<div class="accordion-body">
+							<!-- inizio TABELLA -->
+							<table class="table table-striped">
+							
+							<p class="credits">
+								<span class="credits__a-cura-di"> a cura di </span>
+								<span class="credits__curatore" th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|">Otto</span>
+							</p>
+							
+								<p th:text="${collezione.descrizione}">descrizione</p>
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">opera</th>
+										<th scope="col">artista</th>
+										<th scope="col">miniatura</th>
+									</tr>
+								</thead>
+								<tbody>
+									
+									<tr>
+										<th scope="row">2</th>
+										<td>Jacob</td>
+										<td>Thornton</td>
+										<td>**img**</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td colspan="2">Larry the Bird</td>
+										<td>**img**</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- fine TABELLA -->
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+		</div>
 		<!-- fine Collezioni -->
+		<!-- fine TABELLA -->
+
+		
 	</main>
 
 
