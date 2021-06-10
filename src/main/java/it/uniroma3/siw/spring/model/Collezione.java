@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -18,8 +16,7 @@ public class Collezione {
 	@Column(unique = true, nullable = false)
 	private String nome;
 	
-	
-	private String aliasNome;
+	private String aliasNome; // contiene il nome senza spazi
 
 	@Column
 	private String descrizione;
@@ -30,6 +27,11 @@ public class Collezione {
 	@ManyToOne
 	private Curatore curatore;
 	
+
+	public void setNome(String nome) {this.nome = nome;}
+	/*public void setAliasNome(String nome) {this.aliasNome = nome.replaceAll("\\s+", "");}*/
+	public void setDescrizione(String descrizione) {this.descrizione = descrizione;}
+	public void setCuratore(Curatore curatore) {this.curatore = curatore;}
 	
 	public String getNome() {return nome;}
 	public String getAliasNome() {
@@ -38,9 +40,5 @@ public class Collezione {
 		}
 	public String getDescrizione() {return descrizione;}
 	public Curatore getCuratore() {return curatore;}
-
-	public void setNome(String nome) {this.nome = nome;}
-	public void setAliasNome(String nome) {this.aliasNome = nome.replaceAll("\\s+", "");}
-	public void setDescrizione(String descrizione) {this.descrizione = descrizione;}
-	public void setCuratore(Curatore curatore) {this.curatore = curatore;}
+	public List<Opera> getOpere() {return opere;}
 }

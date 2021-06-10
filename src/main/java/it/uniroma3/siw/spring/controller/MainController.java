@@ -37,10 +37,7 @@ public class MainController {
 	 * Questi metodi gestiscono la navigazione delle pagine amministratore
 	 */
 	
-	@RequestMapping(value = {"/admin/gestisciOpere"}, method = RequestMethod.GET)
-	public String getGestisciOpere(Model model) {
-			return "admin/gestisciOpere";
-	}
+	
 	
 	
 	

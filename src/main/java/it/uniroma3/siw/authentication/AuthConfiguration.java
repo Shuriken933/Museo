@@ -44,10 +44,11 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/artisti", "/artista", 
 				"/opera", "/collezioni", "/collezione", "/informazioni", "/css/**", "/js/**", 
 				"/fonts/**", "/img/**", "/fragments/**", "/risorse").permitAll()
+		
 		// chiunque (autenticato o no) può mandare richieste POST
-		.antMatchers(HttpMethod.POST, "/login", "/register", "/admin/**").permitAll()
+		.antMatchers(HttpMethod.POST, "/login", "/register").permitAll()
+		
 		// solo gli utenti autenticati con ruolo ADMIN possono accedere a risorse con path /admin/**
-
 		.antMatchers(HttpMethod.GET, "/admin/**").hasAnyAuthority(ADMIN_ROLE)
 		.antMatchers(HttpMethod.POST, "/admin/**").hasAnyAuthority(ADMIN_ROLE)
 

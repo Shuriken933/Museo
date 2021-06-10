@@ -9,7 +9,11 @@
 	<!-- fine MENU -->
 
 	<header class="container mb-5">
+	<div class="row">
+			 <div class="col-lg-6 me-auto">
 		<h1>Login</h1>
+		</div>
+		 </div>
 	</header>
 
 	<!-- inizio FORM LOGIN -->
@@ -17,19 +21,24 @@
 		<!-- 
 		<p th:if="${loginError}" class="error">nome utente o password errati</p>
 		 -->
+		 <div class="row">
+			 <div class="col-lg-6 me-auto">
+				 <form th:action="@{/login}" method="POST">
+					<div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">username</label>
+						<input name="username" type="text" class="form-control"	id="exampleInputEmail1" required>
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputPassword1" class="form-label">password</label>
+						<input name="password" type="password" class="form-control"	id="exampleInputPassword1" required>
+					</div>
+					<button type="submit" class="btn btn-primary">Login</button>
+				</form>
+			 </div>
+		 </div>
 		
 	
-		<form th:action="@{/login}" method="POST">
-			<div class="mb-3">
-				<label for="exampleInputEmail1" class="form-label">username</label>
-				<input name="username" type="text" class="form-control"	id="exampleInputEmail1" required>
-			</div>
-			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">password</label>
-				<input name="password" type="password" class="form-control"	id="exampleInputPassword1" required>
-			</div>
-			<button type="submit" class="btn btn-primary">Login</button>
-		</form>
+		
 
 	</main>
 	<!-- inizio FORM LOGIN -->
