@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='gestisci curatori')"></head>
+<body>
+
+	<!-- inizio MENU -->
+	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+	<header class="container text-center">
+		<h2>Gestisci: <strong>Curatori</strong></h2>
+	</header>
+
+
+	<main class="container">
+	
+	<h3>1) Registrazione</h3>
+
+		<!-- inizio REGISTRAZIONE CURATORE -->
+		<!-- Button trigger modal -->
+		<a data-bs-toggle="modal" href="#exampleModal"> Registra un	curatore </a>
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1"	aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Registrazione del curatore</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"	aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+
+						<form action="#" th:action="@{/admin/curatore}" th:object="${curatore}" method="post">
+							<div th:if="${#fields.hasGlobalErrors()}">
+  								<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+							</div>
+							<div class="row">
+								<div class="col-sm">
+									<div class="form-floating mb-3">
+										<input type="text" th:field="*{nome}" class="form-control" id="floatingInput" placeholder="nome" required> 
+										<label for="floatingInput">nome</label>
+									</div>
+								</div>
+								<div class="col-sm">
+									<div class="form-floating mb-3">
+										<input type="text" th:field="*{cognome}" class="form-control" id="floatingInput" placeholder="cognome" required> 
+										<label for="floatingInput">cognome</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm">
+									<div class="form-floating mb-3">
+										<input type="date" th:field="*{dataDiNascita}" class="form-control" id="floatingInput" placeholder="00/00/0000" required> 
+										<label for="floatingInput">data	di nascita</label>
+									</div>
+								</div>
+								<div class="col-sm">
+									<div class="form-floating mb-3">
+										<input type="text" th:field="*{luogoDiNascita}" class="form-control" id="floatingInput" placeholder="luogo_di_nascita" required> 
+										<label for="floatingInput">luogo di nascita</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="basic-addon1">@</span> 
+								<input type="email" th:field="*{email}" class="form-control" placeholder="email" aria-label="email" aria-describedby="basic-addon1" required>
+							</div>
+							<div class="form-floating mb-3">
+								<input type="tel" th:field="*{numeroDiTelefono}" class="form-control" id="floatingInput" placeholder="000000000" required> 
+								<label for="floatingInput">telefono</label>
+							</div>
+							
+							<button type="submit" class="btn btn-primary">Registra</button>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- fine REGISTRAZIONE CURATORE -->
+
+		
+
+		<h3 class="mt-5">2) Visualizzazione</h3>
+		<!-- inizio TABELLA -->
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col" th:text="#{table.matricola}">matricola</th>
+					<th scope="col" th:text="#{table.name}">nome</th>
+					<th scope="col" th:text="#{table.surname}">cognome</th>
+					<th scope="col" th:text="#{table.dateOfBirth}">data nascita</th>
+					<th scope="col" th:text="#{table.birthPlace}">luogo nascita</th>
+					<th scope="col" th:text="#{table.email}">email</th>
+					<th scope="col" th:text="#{table.telephone}">telefono</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="curatore : ${curatori}">
+					<th scope="row" th:text="${curatore.matricola}">1</th>
+					<td th:text="${curatore.nome}">Mario</td>
+					<td th:text="${curatore.cognome}">Rossi</td>
+					<td th:text="${curatore.dataDiNascita}">06/06/1990</td>
+					<td th:text="${curatore.luogoDiNascita}">Roma</td>
+					<td th:text="${curatore.email}">email@mail.com</td>
+					<td th:text="${curatore.numeroDiTelefono}">0606060606</td>
+				</tr>
+				
+			</tbody>
+		</table>
+		<!-- fine TABELLA -->
+
+	</main>
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+
+	<th:block th:replace="fragments/base.html :: script"></th:block>
+
+</body>
+</html>
