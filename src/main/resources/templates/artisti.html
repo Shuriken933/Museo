@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='artisti')"></head>
+<body class="artisti">
+
+	<!-- inizio MENU -->
+	 <nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+	<header class="container">
+		<h1>Artisti</h1>
+		<p>Museo dei Quadri</p>
+	</header>
+	
+	
+	
+    	<!-- 
+    	<div>
+    	<h4>Lista degli artisti</h4>
+    	<ul>
+			<li th:each="artista : ${artisti}">
+				<a href="artista.html" 
+				   th:href="@{'/artista'}" 
+				   th:text="|${artista.nome} ${artista.cognome}|">Paolo Rossi</a>
+			</li>
+		</ul>
+		</div>
+    	 -->
+		
+	
+
+	<main>
+		<!-- inizio ARTISTI -->
+		
+		<div class="container mb-5">
+
+			<div class="row opere-2-colonne mb-4" th:each="artista : ${artisti}">
+				<div class="col-lg-6">
+					<div class="dark-panel panel--left p-4">
+						<h2>
+							<a href="artista.html" th:href="@{'/artista'}" 
+				   			th:text="|${artista.nome} ${artista.cognome}|">Vincent Van Gogh</a>
+						</h2>
+						<ul class="artist-info">
+							<li>nome: <strong th:text="${artista.nome}">**Nome**</strong></li>
+							<li>cognome: <strong th:text="${artista.cognome}">**Cognome**</strong></li>
+							
+							<li>data di nascita: <strong th:text="${artista.dataDiNascita}">**data_di_nascita**</strong></li>
+							<li>luogo di nascita: <strong th:text="${artista.luogoDiNascita}">**luogo_di_nascita**</strong></li>
+							<li>data di morte: <strong th:text="${artista.dataDiMorte}">**data_di_morte**</strong></li>
+							<li>luogo di morte: <strong th:text="${artista.luogoDiMorte}">**luogo_di_morte**</strong></li>
+							
+							<!-- 
+							
+							<li>nazionalità: <strong th:text="${artista.nazionalita}">**nazionalità**</strong></li>
+							
+							
+							 -->
+							
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-6 mb-5 p-5">
+					<!-- <img src="img/vanGogh-1.jpg" class="card-img-top" alt="immagine artista"> -->
+					<p>Biografia: <span th:text="${artista.biografia}">**biografia**</span></p>
+				</div>
+			</div>
+
+			<!-- 
+			<div class="row row-reverse opere-2-colonne">
+				<div class="col-lg-8 mb-5">
+					<img src="img/vanGogh1.jpg" class="card-img-top" alt="Van Gogh">
+				</div>
+				<div class="col-lg-4">
+					<div class="dark-panel panel--right p-4">
+						<h2>
+							<a href="artista.html">Vincent Van Gogh</a>
+						</h2>
+						<ul class="artist-info">
+							<li>nome: <strong>Vincent</strong></li>
+							<li>cognome: <strong>Van Gogh</strong></li>
+							<li>data di nascita: <strong>30 Marzo 1890</strong></li>
+							<li>data di morte: <strong>29 Luglio 1890</strong></li>
+							<li>nazionalità: <strong>olandese</strong></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="row opere-2-colonne">
+				<div class="col-lg-4">
+					<div class="dark-panel panel--left p-4">
+						<h2>
+							<a href="artista.html">Vincent Van Gogh</a>
+						</h2>
+						<ul class="artist-info">
+							<li>nome: <strong>Vincent</strong></li>
+							<li>cognome: <strong>Van Gogh</strong></li>
+							<li>data di nascita: <strong>30 Marzo 1890</strong></li>
+							<li>data di morte: <strong>29 Luglio 1890</strong></li>
+							<li>nazionalità: <strong>olandese</strong></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-8 mb-5">
+					<img src="img/vanGogh-1.jpg" class="card-img-top" alt="Van Gogh">
+				</div>
+			</div>
+			 -->
+			
+
+		</div>
+		<!-- fine ARTISTI -->
+
+	</main>
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+
+	<th:block th:replace="fragments/base.html :: script"></th:block>
+
+</body>
+</html>
