@@ -37,7 +37,7 @@
 					</div>
 					<div class="modal-body">
 
-						<form action="#" th:action="@{/admin/opera}" th:object="${opera}" method="post">
+						<form th:action="@{/admin/opera}" th:object="${opera}" method="post">
 							<div th:if="${#fields.hasGlobalErrors()}">
 					  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 							</div>
@@ -127,7 +127,7 @@
 					<td th:text="${operaSelezionata.annoDiRealizzazione}">1920</td>
 					<td th:text="${operaSelezionata.descrizione}">descrizione dell'opera</td>
 					
-					<td th:text="|${operaSelezionata.autore.nome} ${operaSelezionata.autore.cognome}|">Mario Rossi</td>
+					<td th:text="|${operaSelezionata.artista.nome} ${operaSelezionata.artista.cognome}|">Mario Rossi</td>					<!-- cambiato -->
 					<td th:text="${operaSelezionata.collezione.nome}">Notti sotto le stelle</td>
 					 
 					
