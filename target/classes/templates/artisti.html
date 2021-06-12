@@ -39,7 +39,7 @@
 				<div class="col-lg-6">
 					<div class="dark-panel panel--left p-4">
 						<h2>
-							<a href="artista.html" th:href="@{'/artista'}" 
+							<a href="artista.html" th:href="@{'/artista' + '/' + ${artista.id}}" 
 				   			th:text="|${artista.nome} ${artista.cognome}|">Vincent Van Gogh</a>
 						</h2>
 						<ul class="artist-info">
@@ -51,12 +51,8 @@
 							<li>data di morte: <strong th:text="${artista.dataDiMorte}">**data_di_morte**</strong></li>
 							<li>luogo di morte: <strong th:text="${artista.luogoDiMorte}">**luogo_di_morte**</strong></li>
 							
-							<!-- 
-							
 							<li>nazionalità: <strong th:text="${artista.nazionalita}">**nazionalità**</strong></li>
 							
-							
-							 -->
 							
 						</ul>
 					</div>

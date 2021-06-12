@@ -1,6 +1,7 @@
 package it.uniroma3.siw.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -61,20 +62,43 @@ public class OperaService {
 		} 
 		return false;
 	}*/
-
-		@Transactional
-		public boolean alreadyExists(Opera opera) {
-			List<Opera> opere = this.operaRepository.findByTitolo(opera.getTitolo());
-			if(opere.size() >0)
-				return true;
-			else
-				return false;
+	
+	/*@SuppressWarnings("unlikely-arg-type")
+	@Transactional
+	public void rimuoviTutteOpereDiUnArtista(Long idArtista) {
+		List<Opera> optional = (List<Opera>) operaRepository.findAll();
+		for (Opera opera : optional) {
+			if(opera.getArtista().equals(idArtista)) {
+				operaRepository.delete(opera);
+			}
 		}
+		
+	}*/
+	
+	
 
-
-		//
-		//	@Transactional
-		//	public List<Opera> rimuoviOpera(String nome ) {
-		//		return operaRepository.deleteOpera(nome);
-		//	}
+	@Transactional
+	public boolean alreadyExists(Opera opera) {
+		List<Opera> opere = this.operaRepository.findByTitolo(opera.getTitolo());
+		if(opere.size() >0)
+			return true;
+		else
+			return false;
 	}
+
+	public Opera operaPerId(Long id) {
+		Optional<Opera> optional = operaRepository.findById(id);
+		if (optional.isPresent())
+			return optional.get();
+		else 
+			return null;
+	}
+
+
+
+	//
+	//	@Transactional
+	//	public List<Opera> rimuoviOpera(String nome ) {
+	//		return operaRepository.deleteOpera(nome);
+	//	}
+}

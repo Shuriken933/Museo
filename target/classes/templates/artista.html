@@ -9,7 +9,7 @@
 	<!-- fine MENU -->
 
 	<div class="container">
-		<h2 class="background-text">Vincent Van Gogh</h2>
+		<h2 class="background-text" th:text="|${artista.nome} ${artista.cognome}|">Vincent Van Gogh</h2>
 	</div>
 
 
@@ -18,18 +18,25 @@
 	<header class="container mb-lg-5">
 		<div class="row opere-2-colonne">
 
+			
+			<!-- 
 			<div class="col-lg-8">
-				<img src="img/vanGogh1.jpg" class="card-img-top" alt="Van Gogh">
+			<img src="img/vanGogh1.jpg" class="card-img-top" alt="Van Gogh">
 			</div>
-			<div class="col-lg-4">
+			 -->
+				
+			
+			<div class="col-lg-6 m-auto">
 				<div class="dark-panel panel--right p-4">
-					<h1>Vincent Van Gogh</h1>
+					<h1 th:text="|${artista.nome} ${artista.cognome}|">Vincent Van Gogh</h1>
 					<ul class="artist-info">
-						<li>nome: <strong>Vincent</strong></li>
-						<li>cognome: <strong>Van Gogh</strong></li>
-						<li>data di nascita: <strong>30 Marzo 1890</strong></li>
-						<li>data di morte: <strong>29 Luglio 1890</strong></li>
-						<li>nazionalità: <strong>olandese</strong></li>
+						<li>nome: <strong th:text="${artista.nome}">Vincent</strong></li>
+						<li>cognome: <strong th:text="${artista.cognome}">Van Gogh</strong></li>
+						<li>data di nascita: <strong th:text="${artista.dataDiNascita}">30 Marzo 1890</strong></li>
+						<li>luogo di nascita: <strong th:text="${artista.luogoDiNascita}">Roma</strong></li>
+						<li>data di morte: <strong th:text="${artista.dataDiMorte}">29 Luglio 1890</strong></li>
+						<li>luogo di morte: <strong th:text="${artista.luogoDiMorte}">olandese</strong></li>
+						<li>nazionalità: <strong th:text="${artista.nazionalita}">olandese</strong></li>
 					</ul>
 				</div>
 			</div>
@@ -44,7 +51,7 @@
 		<div class="container mb-5">
 			<div class="row">
 				<div class="col-lg-6 m-auto">
-					<p>Notizie della famiglia dei van Gogh si rintracciano a L'Aia
+					<p th:text="${artista.biografia}">Notizie della famiglia dei van Gogh si rintracciano a L'Aia
 						fin dalla metà del XVII secolo e a partire dal Settecento quella
 						famiglia trasmise di padre in figlio il mestiere di orefice. Nel
 						primo Ottocento si ha notizia di un Vincent van Gogh (1789-1874),
@@ -72,49 +79,55 @@
 
 		<!-- inizio OPERE-scroll -->
 		<div class="carosello">
-			<div class="items">
-				<div class="item item1">
+			<div class="items" th:each="opera : ${artista.opere}">
+			
+				<div class="item">
 					<img src="img/leonardo-1.jpeg" alt="">
 					<div class="panel-info p-3">
-						<a href="opera.html"><h3>Gioconda</h3></a> <a href="artista.html"><h4>
-								- Leonardo Da Vinci</h4></a>
+						<a href="opera.html"><h3 th:text="${opera.titolo}">Gioconda</h3></a> 
 					</div>
 				</div>
-				<div class="item item2">
+				
+				<!-- 
+				<div class="item">
 					<img src="img/raffaello-1.jpg" alt="">
 					<div class="panel-info p-3">
 						<a href="opera.html"><h3>Una scena ripresa a caso</h3></a> <a
 							href="artista.html"><h4>- Raffaello</h4></a>
 					</div>
 				</div>
-				<div class="item item3">
+				<div class="item">
 					<img src="img/VanGogh-1.jpg" alt="">
 					<div class="panel-info p-3">
 						<a href="opera.html"><h3>Notte stellata</h3></a> <a
 							href="artista.html"><h4>- Van Gogh</h4></a>
 					</div>
 				</div>
-				<div class="item item4">
+				<div class="item">
 					<img src="img/leonardo-1.jpeg" alt="">
 					<div class="panel-info p-3">
 						<a href="opera.html"><h3>Gioconda</h3></a> <a href="artista.html"><h4>
 								- Leonardo Da Vinci</h4></a>
 					</div>
 				</div>
-				<div class="item item5">
+				<div class="item">
 					<img src="img/VanGogh1.jpg" alt="">
 					<div class="panel-info p-3">
 						<a href="opera.html"><h3>Ritratto di Van Gogh</h3></a> <a
 							href="artista.html"><h4>- Van Gogh</h4></a>
 					</div>
 				</div>
-				<div class="item item6">
+				<div class="item">
 					<img src="img/raffaello-1.jpg" alt="">
 					<div class="panel-info p-3">
 						<a href="opera.html"><h3>Una scena a caso</h3></a> <a
 							href="artista.html"><h4>- Raffaello</h4></a>
 					</div>
 				</div>
+				 -->
+				
+				
+				
 			</div>
 		</div>
 		<!-- fine OPERE-scroll -->

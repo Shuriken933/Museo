@@ -18,18 +18,18 @@
 
 	<main class="container">
 
-		<h3>1) Registrazione</h3>
+		<h3 th:text="#{header.registration}">1) Registrazione</h3>
 
 		<!-- inizio REGISTRAZIONE COLLEZIONE -->
 		<!-- Button trigger modal -->
-		<a data-bs-toggle="modal" href="#exampleModal"> Registra una collezione </a>
+		<a data-bs-toggle="modal" href="#exampleModal" th:text="#{modal-action.registration.collection}"> Registra una collezione </a>
 
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Registrazione</h5>
+						<h5 class="modal-title" id="exampleModalLabel" th:text="#{modal.registration.collection}">Registrazione di una collezione</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal"	aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
@@ -84,51 +84,46 @@
 				</h2>
 				<div th:id="${collezioneSelezionata.aliasNome}" class="accordion-collapse collapse"	th:aria-labelledby="|heading-|+|${collezioneSelezionata.aliasNome}|" data-bs-parent="#accordionExample">
 					<div class="accordion-body">
-						<div class="accordion-body">
+						
 							<!-- inizio TABELLA -->
 							<table class="table table-striped">
 							
-							<p class="credits">
-								<span class="credits__a-cura-di"> a cura di </span>
-								<span class="credits__curatore" th:text="|${collezioneSelezionata.curatore.nome} ${collezioneSelezionata.curatore.cognome}|">Otto</span>
-							</p>
-							
+								<p class="credits">
+									<span class="credits__a-cura-di"> a cura di </span>
+									<a th:href="@{/admin/gestisciCuratori}">
+									<span class="credits__curatore" th:text="|${collezioneSelezionata.curatore.nome} ${collezioneSelezionata.curatore.cognome}|">
+										Otto
+									</span></a>
+								</p>
 								<p th:text="${collezioneSelezionata.descrizione}">descrizione</p>
 								<thead>
 									<tr>
-										<th scope="col">#</th>
-										<th scope="col">opera</th>
-										<th scope="col">artista</th>
-										<th scope="col">miniatura</th>
+										<th scope="col" th:text="#{table.id}">#</th>
+										<td scope="col" th:text="#{table.title}">opera</td>
+										<td scope="col" th:text="#{table.artist}">artista</td>
+										<td scope="col" th:text="#{table.thumbnail}">*img*</td>
 									</tr>
 								</thead>
 								<tbody>
-								<!-- 
-								<tr th:each="opera : ${listaOpere}">
-										<th scope="row">1</th>
-										<td th:text="${opera.nome}">Notti di inverno</td>
-										<td th:text="${opera.artista}">Otto</td>
-										<td>**img**</td>
+								
+									<tr th:each="opera : ${collezioneSelezionata.opere}">
+										<th scope="row" th:text="${opera.id}">#</th>
+										<td scope="col" th:text="${opera.titolo}">opera</td>
+										<td scope="col" th:text="${opera.artista.nome}">artista</td>
+										<td scope="col">*img*</td>
 									</tr>
-								 -->
 									
-									<tr>
-										<th scope="row">2</th>
-										<td>Jacob</td>
-										<td>Thornton</td>
-										<td>**img**</td>
-									</tr>
-									<tr>
-										<th scope="row">3</th>
-										<td colspan="2">Larry the Bird</td>
-										<td>**img**</td>
-									</tr>
+									
+									
 								</tbody>
 							</table>
 							<!-- fine TABELLA -->
-						</div>
+						
+						<p class="mt-4"><a th:href="@{'/collezione/delete/' + ${collezioneSelezionata.id}}" th:text="#{remove.collection}">Rimuovi</a></p>
 					</div>
+					
 				</div>
+				
 			</div>
 			
 			

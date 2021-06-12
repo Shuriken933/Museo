@@ -25,7 +25,6 @@ a:hover{color: var(--color-3);}
 
 h1,h2,h3,h4,h5,h6,.accordion-button{ font-family: 'Cormorant Garamond', serif;}
 
-
 h1{font-size: 7rem; margin-bottom: -0.1em;}
 h2{font-size: 3.5rem;}
 h3{font-size: 1.75rem;}
@@ -41,11 +40,9 @@ p{font-size: 1rem; line-height: 1.65;}
     padding-bottom: 0.8rem;
 }
 .navbar-nav{width: 100%;}
-.navbar-light .navbar-toggler {
-    border: 2px solid black;
-}
+.navbar-light .navbar-toggler {border: 2px solid black;}
 .nav-item.dropdown{border:none;}
-li.nav-item.dropdown::marker{content: '';} /*rende invisibile una segnatura*/
+/*li.nav-item.dropdown::marker{content: '';}*/ /*rende invisibile una segnatura*/
 .navbar .navbar-brand img{width: 40px;}
 .nav-item{
   border-right: 2px solid #212529;
@@ -71,6 +68,11 @@ li.nav-item.dropdown::marker{content: '';} /*rende invisibile una segnatura*/
 }
 .nav-link:focus, .nav-link:hover {
     color: #b7a17c;
+}
+.dropdown-menu {
+  border-radius: 0px!important;
+  border: none!important;
+  box-shadow: 0px 20px 20px -10px #0000002b!important;
 }
 
 

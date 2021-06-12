@@ -26,6 +26,7 @@ public class ArtistaController {
 
 	@Autowired
 	private ArtistaRepository artistaRepository;
+	
 
 	/* metodi commentati perhcè nel progetto non è richiesto l'add di un nuovo artista */
 
@@ -43,10 +44,17 @@ public class ArtistaController {
         return "admin/artistaForm";
     }*/
 
-	@RequestMapping(value = {"artisti", "/admin/artisti"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"artisti"/*, "/admin/artisti"*/}, method = RequestMethod.GET)
 	public String getArtisti(Model model) {
 		model.addAttribute("artisti", this.artistaService.tutti());
 		return "artisti";
+	}
+	
+	@GetMapping("artista/{id}")
+	public String getArtista(@PathVariable("id") Long id, Model model) {
+		this.artistaRepository.findById(id);
+		model.addAttribute("artista", this.artistaService.artistaPerId(id));
+		return "artista";
 	}
 
 
@@ -57,16 +65,34 @@ public class ArtistaController {
 		if (!bindingResult.hasErrors()) {
 			this.artistaService.inserisci(artista);
 			model.addAttribute("artisti", this.artistaService.tutti());
-			return "admin/gestisciArtisti";
+			return "redirect:/admin/gestisciArtisti";
 		}
 		return "admin/artistaForm";
 	}
+	
+	@RequestMapping(value = {"/modifica-artista/{id}"}, method = RequestMethod.POST)
+	public String modifyArtista(@PathVariable("id") Long id, Model model, BindingResult bindingResult) {
+		this.artistaRepository.findById(id);
+		Artista artista = this.artistaService.artistaPerId(id);
+		model.addAttribute("artista", artista);
+		//model.addAttribute("artista", this.artistaService.tutti());
+		/*artistaApp.setNome(null);
+		artistaApp.setCognome(null);
+		artistaApp.setBiografia(null);
+		artistaApp.setDataDiNascita(null);
+		artistaApp.setLuogoDiNascita(null);
+		artistaApp.setDataDiMorte(null);
+		artistaApp.setLuogoDiMorte(null);
+		artistaApp.setNazionalita(null);
+		model.addAttribute("artista", this.artistaService.tutti());*/
+		return "redirect:/admin/gestisciArtisti";
+
+	}
 
 	@GetMapping("artista/delete/{id}")
-	public String deleteArtista(@PathVariable("id") Long id,
-			Model model) {
-		this.artistaRepository.deleteById(id);
-		return "admin/home";
+	public String rimuoviArtista(@PathVariable("id") Long id, Model model) {
+		this.artistaService.rimuoviArtista(id);
+		return "redirect:/admin/gestisciArtisti"; 
 	}
 
 }

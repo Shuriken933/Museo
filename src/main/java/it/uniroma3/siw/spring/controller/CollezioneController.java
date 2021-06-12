@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.spring.controller.validator.CollezioneValidator;
@@ -48,9 +49,15 @@ public class CollezioneController {
         if (!bindingResult.hasErrors()) {
         	this.collezioneService.inserisci(collezione);
         	model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
-            return "admin/gestisciCollezioni";
+            return "redirect:/admin/gestisciCollezioni";
         }
         return "admin/gestisciCollezioni";
     }
+	
+	@GetMapping("collezione/delete/{id}")
+	public String rimuoviCollezione(@PathVariable("id") Long id, Model model) {
+		this.collezioneService.rimuoviCollezione(id);
+		return "redirect:/admin/gestisciCollezioni"; 
+	}
 
 }

@@ -38,7 +38,7 @@ public class CuratoreController {
         if (!bindingResult.hasErrors()) {
         	this.curatoreService.inserisci(curatore);
         	model.addAttribute("curatori", this.curatoreService.tutti());
-            return "admin/gestisciCuratori";
+            return "redirect:/admin/gestisciCuratori";
         }
         return "admin/gestisciCuratori";
     }

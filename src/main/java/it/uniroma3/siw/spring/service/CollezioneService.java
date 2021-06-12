@@ -49,8 +49,22 @@ public class CollezioneService {
 	}*/
 	
 	@Transactional
+	public void rimuoviCollezione(Long id) {
+		collezioneRepository.deleteById(id);
+	}
+	
+	/*@Transactional
 	public Collezione collezionePerNome(String nome) {
 		Optional<Collezione> optional = collezioneRepository.findById(nome);
+		if(optional.isPresent())
+			return optional.get();
+		else
+			return null;
+	}*/
+	
+	@Transactional
+	public Collezione collezionePerId(Long id) {
+		Optional<Collezione> optional = collezioneRepository.findById(id);
 		if(optional.isPresent())
 			return optional.get();
 		else

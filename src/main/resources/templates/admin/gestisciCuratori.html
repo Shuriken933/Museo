@@ -15,18 +15,18 @@
 
 	<main class="container">
 	
-	<h3>1) Registrazione</h3>
+	<h3 th:text="#{header.registration}">1) Registrazione</h3>
 
 		<!-- inizio REGISTRAZIONE CURATORE -->
 		<!-- Button trigger modal -->
-		<a data-bs-toggle="modal" href="#exampleModal"> Registra un	curatore </a>
+		<a data-bs-toggle="modal" href="#exampleModal" th:text="#{modal-action.registration.managerPaintings}"> Registra un curatore </a>
 
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1"	aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Registrazione del curatore</h5>
+						<h5 class="modal-title" id="exampleModalLabel" th:text="#{modal.registration.managerPaintings}">Registrazione del curatore</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal"	aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
@@ -39,13 +39,13 @@
 								<div class="col-sm">
 									<div class="form-floating mb-3">
 										<input type="text" th:field="*{nome}" class="form-control" id="floatingInput" placeholder="nome" required> 
-										<label for="floatingInput">nome</label>
+										<label for="floatingInput" th:text="#{table.name}">nome</label>
 									</div>
 								</div>
 								<div class="col-sm">
 									<div class="form-floating mb-3">
 										<input type="text" th:field="*{cognome}" class="form-control" id="floatingInput" placeholder="cognome" required> 
-										<label for="floatingInput">cognome</label>
+										<label for="floatingInput" th:text="#{table.surname}">cognome</label>
 									</div>
 								</div>
 							</div>
@@ -54,13 +54,13 @@
 								<div class="col-sm">
 									<div class="form-floating mb-3">
 										<input type="date" th:field="*{dataDiNascita}" class="form-control" id="floatingInput" placeholder="00/00/0000" required> 
-										<label for="floatingInput">data	di nascita</label>
+										<label for="floatingInput" th:text="#{table.dateOfBirth}">data	di nascita</label>
 									</div>
 								</div>
 								<div class="col-sm">
 									<div class="form-floating mb-3">
 										<input type="text" th:field="*{luogoDiNascita}" class="form-control" id="floatingInput" placeholder="luogo_di_nascita" required> 
-										<label for="floatingInput">luogo di nascita</label>
+										<label for="floatingInput" th:text="#{table.birthPlace}">luogo di nascita</label>
 									</div>
 								</div>
 							</div>
@@ -71,7 +71,7 @@
 							</div>
 							<div class="form-floating mb-3">
 								<input type="tel" th:field="*{numeroDiTelefono}" class="form-control" id="floatingInput" placeholder="000000000" required> 
-								<label for="floatingInput">telefono</label>
+								<label for="floatingInput" th:text="#{table.telephone}">telefono</label>
 							</div>
 							
 							<button type="submit" class="btn btn-primary">Registra</button>

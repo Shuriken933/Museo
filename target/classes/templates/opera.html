@@ -12,9 +12,9 @@
 	<!-- inizio HERO -->
 	<div class="container mb-5">
 		<header class="mb-4">
-			<h1 class="display-3 text-center">Notte stellata</h1>
+			<h1 class="display-3 text-center" th:text="${opera.titolo}">Notte stellata</h1>
 			<p class="text-center">
-				<a href="artista.html">Vincent van Gogh</a>
+				<a href="artista.html" th:href="@{'/artista' + '/' + ${opera.artista.id}}" th:text="${opera.artista.nome}">Vincent van Gogh</a>
 			</p>
 			<div class="text-center">
 				<img src="img/vanGogh-1.jpg" alt="" width="100%" height="100%">
@@ -27,9 +27,35 @@
 	<main>
 		<!-- inizio DESCRIZIONE -->
 		<div class="container">
+		
+		<div class="row opere-2-colonne">
+
+			
+			<!-- 
+			<div class="col-lg-8">
+			<img src="img/vanGogh1.jpg" class="card-img-top" alt="Van Gogh">
+			</div>
+			 -->
+				
+			
+			<div class="col-lg-6 m-auto mb-5">
+				<div class="dark-panel panel--right p-4">
+					<!-- <h1 th:text="${opera.titolo}">titolo opera</h1> -->
+					<ul class="artist-info mb-0">
+						<li>realizzata nel: <strong th:text="${opera.annoDiRealizzazione}">anno</strong></li>
+						<li>contenuta in: <strong th:text="${opera.collezione.nome}">collezione</strong></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		
+		
 			<div class="row">
 				<div class="col-6 m-auto">
-					<p>Nel 1888, prima dell'internamento a Saint-Rémy, van Gogh
+
+					<p th:text="${opera.descrizione}">
+						Nel 1888, prima dell'internamento a Saint-Rémy, van Gogh
 						scrisse: «Con un quadro vorrei poter esprimere qualcosa di
 						commovente come una musica. Vorrei dipingere uomini e donne con un
 						non so che di eterno, di cui un tempo era simbolo l’aureola, e che

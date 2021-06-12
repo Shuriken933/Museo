@@ -19,20 +19,18 @@
 
 	<main class="container">
 
-		<h3>1) Registrazione</h3>
+		<h3 th:text="#{header.registration}">1) Registrazione</h3>
 
 		<!-- inizio REGISTRAZIONE CURATORE -->
 		<!-- Button trigger modal -->
-		<a data-bs-toggle="modal" href="#exampleModal"> Registra un'opera
-		</a>
+		<a data-bs-toggle="modal" href="#exampleModal" th:text="#{modal-action.registration.painting}"> Registra un'opera</a>
 
 		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="exampleModal" tabindex="-1"	aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Registrazione dell'opera</h5>
+						<h5 class="modal-title" id="exampleModalLabel" th:text="#{modal.registration.painting}">Registrazione dell'opera</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal"	aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
@@ -45,7 +43,6 @@
 								<input type="text" class="form-control" id="floatingInput" placeholder="titolo" th:field="*{titolo}" required>
 								<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
 								<label for="floatingInput">titolo</label>
-								
 							</div>
 							<!-- 
 							<div class="input-group mb-3">
@@ -87,7 +84,7 @@
 								<select class="form-control" th:field="*{collezione}" required>
 								 
 								 	<th:block th:each="singolaCollezione : ${collezioni}">
-										<option th:text="${singolaCollezione.nome}" th:value=${singolaCollezione.nome} />
+										<option th:text="${singolaCollezione.nome}" th:value=${singolaCollezione.id} />
 									</th:block>
 									
 								</select>
@@ -121,15 +118,25 @@
 			</thead>
 			<tbody>
 				<tr th:each="operaSelezionata : ${opere}">
-					<th scope="row">1</th>
+					<th scope="row" th:text="${operaSelezionata.id}">1</th>
 					
-					<td th:text="${operaSelezionata.titolo}">Notte stellata</td>
+					<td>	
+						<a th:href="@{'/opera' + '/' + ${operaSelezionata.id}}" th:text="${operaSelezionata.titolo}">
+							Notte stellata
+						</a>
+					</td>
 					<td th:text="${operaSelezionata.annoDiRealizzazione}">1920</td>
 					<td th:text="${operaSelezionata.descrizione}">descrizione dell'opera</td>
+
+					<td>
+						<a th:href="@{'/artista' + '/' + ${operaSelezionata.artista.id}}" th:text="|${operaSelezionata.artista.nome} ${operaSelezionata.artista.cognome}|">
+							Notte stellata
+						</a>
+					</td>
 					
-					<td th:text="|${operaSelezionata.artista.nome} ${operaSelezionata.artista.cognome}|">Mario Rossi</td>					<!-- cambiato -->
+					
 					<td th:text="${operaSelezionata.collezione.nome}">Notti sotto le stelle</td>
-					 
+					
 					
 				</tr>
 				

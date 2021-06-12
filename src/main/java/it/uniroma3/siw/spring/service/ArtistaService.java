@@ -1,7 +1,7 @@
 package it.uniroma3.siw.spring.service;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -28,9 +28,10 @@ public class ArtistaService {
 	}
 	
 	@Transactional
-	public void deleteArtista(Long id) {
+	public void rimuoviArtista(Long id) {
 		artistaRepository.deleteById(id);
 	}
+	
 
 	@Transactional
 	public boolean alreadyExists(Artista artista) {
@@ -39,6 +40,14 @@ public class ArtistaService {
 			return true;
 		else 
 			return false;
+	}
+
+	public Artista artistaPerId(Long id) {
+		Optional<Artista> optional = artistaRepository.findById(id);
+		if (optional.isPresent())
+			return optional.get();
+		else 
+			return null;
 	}
 
 }
