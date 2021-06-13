@@ -17,7 +17,7 @@
 				<a href="artista.html" th:href="@{'/artista' + '/' + ${opera.artista.id}}" th:text="${opera.artista.nome}">Vincent van Gogh</a>
 			</p>
 			<div class="text-center">
-				<img src="img/vanGogh-1.jpg" alt="" width="100%" height="100%">
+				<img th:src="@{/img/vanGogh-1.jpg}" alt="" width="100%" height="100%">
 			</div>
 		</header>
 	</div>
