@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='collezione')"></head>
+<body class="collezione">
+
+	<!-- inizio MENU -->
+	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+
+	<!-- inizio HERO -->
+	<div class="container">
+		<header class="mb-4">
+			<h1 class="text-center">Nome della collezione</h1>
+			<p class="text-center">
+				<a href="artista.html">Mario Rossi</a>
+			</p>
+		</header>
+	</div>
+	<!-- inizio HERO -->
+
+
+	<main>
+		<!-- inizio CAROSELLO -->
+		<!-- inizio versione-desktop -->
+		<div class="carosello">
+			<div class="items">
+				<div class="item item1">
+					<img src="img/leonardo-1.jpeg" alt="">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Gioconda</h3></a> <a href="artista.html"><h4>
+								- Leonardo Da Vinci</h4></a>
+					</div>
+				</div>
+				<div class="item item2">
+					<img src="img/raffaello-1.jpg" alt="">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Una scena ripresa a caso</h3></a> <a
+							href="artista.html"><h4>- Raffaello</h4></a>
+					</div>
+				</div>
+				<div class="item item3">
+					<img src="img/VanGogh-1.jpg" alt="">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Notte stellata</h3></a> <a
+							href="artista.html"><h4>- Van Gogh</h4></a>
+					</div>
+				</div>
+				<div class="item item4">
+					<img src="img/leonardo-1.jpeg" alt="">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Gioconda</h3></a> <a href="artista.html"><h4>
+								- Leonardo Da Vinci</h4></a>
+					</div>
+				</div>
+				<div class="item item5">
+					<img src="img/VanGogh1.jpg" alt="">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Ritratto di Van Gogh</h3></a> <a
+							href="artista.html"><h4>- Van Gogh</h4></a>
+					</div>
+				</div>
+				<div class="item item6">
+					<img src="img/raffaello-1.jpg" alt="">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Una scena a caso</h3></a> <a
+							href="artista.html"><h4>- Raffaello</h4></a>
+					</div>
+				</div>
+				<div class="item p-5">
+					<div class="panel-more-art">
+						<p>
+							Guarda<br>le nostre
+						</p>
+						<a href="#">Collezioni</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- fine versione-desktop -->
+
+		<!-- inizio versione-mobile -->
+		<div class="carosello-mobile">
+			<div class="item item1">
+				<img src="img/leonardo-1.jpeg" alt="">
+				<div class="panel-info p-2">
+					<a href="opera.html"><h3>Gioconda</h3></a> <a href="artista.html"><h4>
+							- Leonardo Da Vinci</h4></a>
+				</div>
+			</div>
+			<div class="item item2">
+				<img src="img/raffaello-1.jpg" alt="">
+				<div class="panel-info p-2">
+					<a href="opera.html"><h3>Una scena ripresa a caso</h3></a> <a
+						href="artista.html"><h4>- Raffaello</h4></a>
+				</div>
+			</div>
+			<div class="item item3">
+				<img src="img/VanGogh-1.jpg" alt="">
+				<div class="panel-info p-2">
+					<a href="opera.html"><h3>Notte stellata</h3></a> <a
+						href="artista.html"><h4>- Van Gogh</h4></a>
+				</div>
+			</div>
+			<div class="item item4">
+				<img src="img/leonardo-1.jpeg" alt="">
+				<div class="panel-info p-2">
+					<a href="opera.html"><h3>Gioconda</h3></a> <a href="artista.html"><h4>
+							- Leonardo Da Vinci</h4></a>
+				</div>
+			</div>
+			<div class="item item5">
+				<img src="img/VanGogh1.jpg" alt="">
+				<div class="panel-info p-2">
+					<a href="opera.html"><h3>Ritratto di Van Gogh</h3></a> <a
+						href="artista.html"><h4>- Van Gogh</h4></a>
+				</div>
+			</div>
+			<div class="item item6">
+				<img src="img/raffaello-1.jpg" alt="">
+				<div class="panel-info p-2">
+					<a href="opera.html"><h3>Una scena a caso</h3></a> <a
+						href="artista.html"><h4>- Raffaello</h4></a>
+				</div>
+			</div>
+			<div class="item item--more-art p-3">
+				<div class="panel-more-art">
+					<p>
+						Guarda<br>le nostre
+					</p>
+					<a href="#">Collezioni</a>
+				</div>
+			</div>
+		</div>
+		<!-- fine versione-mobile -->
+		<!-- fine CAROSELLO -->
+	</main>
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+
+	<th:block th:replace="fragments/base.html :: script"></th:block>
+</body>
+</html>
