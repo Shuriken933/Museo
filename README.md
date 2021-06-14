@@ -24,16 +24,16 @@ Museo/
 │   ├── it.uniroma3.siw.spring.service/...
 └── resources/
     ├── messages/
-        ├── message_IT
-        ├── message
+    │   ├── message_IT
+    │   ├── message
     ├── static/
-        ├── css
-        ├── fonts
-        ├── img
-        ├── js
+    │   ├── css
+    │   ├── fonts
+    │   ├── img
+    │   ├── js
     ├── templates/
-        ├── admin/...
-        ├── fragments/...
-        ├── ...
+    │   ├── admin/...
+    │   ├── fragments/...
+    │   ├── ...
     ├── application.properties
 ```
