@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='opera')"></head>
+<body class="opera">
+
+	<!-- inizio MENU -->
+	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+
+	<!-- inizio HERO -->
+	<div class="container mb-5">
+		<header class="mb-4">
+			<h1 class="display-3 text-center" th:text="${opera.titolo}">Notte stellata</h1>
+			<p class="text-center">
+				<a href="artista.html" th:href="@{'/artista' + '/' + ${opera.artista.id}}" th:text="|${opera.artista.nome} ${opera.artista.cognome}|">Vincent van Gogh</a>
+			</p>
+			<div class="text-center">
+				<img alt="" th:src="@{'/img/' + ${opera.immagine}}">
+			</div>
+		</header>
+	</div>
+	<!-- inizio HERO -->
+
+
+	<main>
+		<!-- inizio DESCRIZIONE -->
+		<div class="container">
+		
+		<div class="row opere-2-colonne">
+
+			
+			<!-- 
+			<div class="col-lg-8">
+			<img src="img/vanGogh1.jpg" class="card-img-top" alt="Van Gogh">
+			</div>
+			 -->
+			 
+				
+			
+			<div class="col-lg-6 m-auto mb-5">
+				<div class="dark-panel panel--right p-4">
+					<!-- <h1 th:text="${opera.titolo}">titolo opera</h1> -->
+					<ul class="artist-info mb-0">
+						<li>realizzata nel: <strong th:text="${opera.annoDiRealizzazione}">anno</strong></li>
+						<li>contenuta in: <strong th:text="${opera.collezione.nome}">collezione</strong></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		
+		
+			<div class="row">
+				<div class="col-6 m-auto">
+
+					<p th:text="${opera.descrizione}">
+						Nel 1888, prima dell'internamento a Saint-Rémy, van Gogh
+						scrisse: «Con un quadro vorrei poter esprimere qualcosa di...
+					</p>
+				</div>
+			</div>
+
+		</div>
+		<!-- fine DESCRIZIONE -->
+	</main>
+
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+
+	<th:block th:replace="fragments/base.html :: script"></th:block>
+
+</body>
+</html>
