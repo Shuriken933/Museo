@@ -14,10 +14,10 @@
 		<header class="mb-4">
 			<h1 class="display-3 text-center" th:text="${opera.titolo}">Notte stellata</h1>
 			<p class="text-center">
-				<a href="artista.html" th:href="@{'/artista' + '/' + ${opera.artista.id}}" th:text="${opera.artista.nome}">Vincent van Gogh</a>
+				<a href="artista.html" th:href="@{'/artista' + '/' + ${opera.artista.id}}" th:text="|${opera.artista.nome} ${opera.artista.cognome}|">Vincent van Gogh</a>
 			</p>
 			<div class="text-center">
-				<img src="img/vanGogh-1.jpg" alt="" width="100%" height="100%">
+				<img src="img/leonardo-1.jpg" alt="" width="" height="50px">
 			</div>
 		</header>
 	</div>
@@ -56,28 +56,8 @@
 
 					<p th:text="${opera.descrizione}">
 						Nel 1888, prima dell'internamento a Saint-Rémy, van Gogh
-						scrisse: «Con un quadro vorrei poter esprimere qualcosa di
-						commovente come una musica. Vorrei dipingere uomini e donne con un
-						non so che di eterno, di cui un tempo era simbolo l’aureola, e che
-						noi cerchiamo di rendere con lo stesso raggiare, con la vibrazione
-						dei colori [...]. Ah il ritratto, il ritratto che mostri i
-						pensieri, l’anima del modello: ecco cosa credo debba vedersi»
-
-						(Vincent van Gogh, Arles, 3 settembre 1888) La Notte stellata,
-						certamente una delle opere vangoghiane più celebri, risponde
-						perfettamente a quest'esigenza. In questo dipinto, infatti, il
-						pittore ha certamente cercato il contatto diretto con la realtà,
-						dipingendo quello che si poteva vedere dalla finestra della sua
-						stanza nel manicomio di Saint-Rémy. Van Gogh, tuttavia, non ha
-						ripreso fedelmente questa veduta notturna, bensì l'ha manipolata
-						con mezzi plastici, interiorizzandola fino allo spasimo e
-						verticalità del cipresso e «sfida le forze della natura: è
-						un'antenna e un parafulmine insieme, una sorta di Tour Eiffel, la
-						cui fascinazione è sempre presente nelle vedute notturne
-						dell'artista [...] sembra crepitare, carica di elettricità».[3] A
-						destra vigoreggia la ricca vegetazione degli ulivi, mentre sullo
-						sfondo si estende il profilo diagonale e ondulato delle Alpilles,
-						importante catena montuosa del Meridione francese.</p>
+						scrisse: «Con un quadro vorrei poter esprimere qualcosa di...
+					</p>
 				</div>
 			</div>
 

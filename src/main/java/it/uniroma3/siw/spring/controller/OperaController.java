@@ -78,5 +78,11 @@ public class OperaController {
 		return "redirect:/admin/gestisciOpera";
 
 	}
+	
+	@GetMapping("opera/delete/{id}")
+	public String rimuoviOpera(@PathVariable("id") Long id, Model model) {
+		this.operaService.rimuoviOpera(id);
+		return "redirect:/admin/gestisciOpera"; 
+	}
 
 }

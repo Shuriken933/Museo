@@ -44,24 +44,20 @@
 								<p th:text="${collezione.descrizione}">descrizione</p>
 								<thead>
 									<tr>
-										<th scope="col">#</th>
-										<th scope="col">opera</th>
-										<th scope="col">artista</th>
-										<th scope="col">miniatura</th>
+										<th scope="col" th:text="#{table.id}">#</th>
+										<td scope="col" th:text="#{table.title}">opera</td>
+										<td scope="col" th:text="#{table.artist}">artista</td>
 									</tr>
 								</thead>
-								<tbody>
-									
-									<tr>
-										<th scope="row">2</th>
-										<td>Jacob</td>
-										<td>Thornton</td>
-										<td>**img**</td>
-									</tr>
-									<tr>
-										<th scope="row">3</th>
-										<td colspan="2">Larry the Bird</td>
-										<td>**img**</td>
+								<tbody>									
+									<tr th:each="opera : ${collezione.opere}">
+										<th scope="row"  th:text="${opera.id}">#</th>
+										<td>	
+											<a th:href="@{'/opera' + '/' + ${opera.id}}" th:text="${opera.titolo}">opera</a>
+										</td>
+										<td>
+											<a th:href="@{'/artista' + '/' + ${opera.artista.id}}" th:text="|${opera.artista.nome} ${opera.artista.cognome}|">Mario Rossi</a>
+										</td>
 									</tr>
 								</tbody>
 							</table>

@@ -121,7 +121,7 @@ p{font-size: 1rem; line-height: 1.65;}
 
 .carosello img{
   width: 100%;
-  height: 60vh;
+  height: 250px;
 }
 
 .carosello .panel-info{
@@ -204,7 +204,7 @@ blockquote{
   background:#fff;
   border-left:10px solid var(--color-3);
   padding: 1rem 1rem;
-  quotes:"‚Äú" "‚Äù" "‚Äò" "‚Äô";
+  quotes:"ì" "î" "ë" "í";
   width: 600px;
   margin-left: auto;
   margin-right: auto;

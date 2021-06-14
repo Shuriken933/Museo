@@ -43,25 +43,10 @@ public class OperaService {
 		return operaRepository.findByTitolo(titolo);
 	}
 
-	/*@Transactional
-	public boolean rimuoviOpera(String nome) {
-		List<Opera> optional = (List<Opera>) operaRepository.findAll();
-		if(optional.size() > 0) {
-			operaRepository.deleteOpera(nome);
-			return true;
-		} 
-		return false;
-	}
-
 	@Transactional
-	public boolean rimuoviTutteOpere() {
-		List<Opera> optional = (List<Opera>) operaRepository.findAll();
-		if(optional.size() > 0) {
-			operaRepository.deleteAll();
-			return true;
-		} 
-		return false;
-	}*/
+	public void rimuoviOpera(Long id) {
+		operaRepository.deleteById(id);
+	}
 	
 	/*@SuppressWarnings("unlikely-arg-type")
 	@Transactional
