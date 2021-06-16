@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='artista')"></head>
+<body class="artista">
+
+	<!-- inizio MENU -->
+	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+	<div class="container">
+		<h2 class="background-text" th:text="|${artista.nome} ${artista.cognome}|">Vincent Van Gogh</h2>
+	</div>
+
+
+
+	<!-- inizio HERO -->
+	<header class="container mb-lg-5">
+		<div class="row opere-2-colonne">
+
+			
+			<!-- 
+			<div class="col-lg-8">
+			<img src="img/vanGogh1.jpg" class="card-img-top" alt="Van Gogh">
+			</div>
+			 -->
+				
+			
+			<div class="col-lg-6 m-auto">
+				<div class="dark-panel p-4">
+					<h1 class="mb-0" th:text="|${artista.nome} ${artista.cognome}|">Vincent Van Gogh</h1>
+					<img class="my-4" th:src="@{'/img/artisti/' + ${artista.immagine}}" width="100%" height="350">
+					<ul class="artist-info">
+						<li>nome: <strong th:text="${artista.nome}">Vincent</strong></li>
+						<li>cognome: <strong th:text="${artista.cognome}">Van Gogh</strong></li>
+						<li>data di nascita: <strong th:text="${artista.dataDiNascita}">30 Marzo 1890</strong></li>
+						<li>luogo di nascita: <strong th:text="${artista.luogoDiNascita}">Roma</strong></li>
+						<li>data di morte: <strong th:text="${artista.dataDiMorte}">29 Luglio 1890</strong></li>
+						<li>luogo di morte: <strong th:text="${artista.luogoDiMorte}">olandese</strong></li>
+						<li>nazionalità: <strong th:text="${artista.nazionalita}">olandese</strong></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</header>
+	<!-- fine HERO -->
+
+
+	<main>
+		<!-- inizio BIOGRAFIA -->
+		<div class="container my-5">
+			<div class="row">
+				<div class="col-lg-6 m-auto">
+					<p th:text="${artista.biografia}">testo biografia</p>
+				</div>
+			</div>
+		</div>
+		<!-- fine BIOGRAFIA -->
+
+
+		<!-- inizio OPERE-scroll -->
+		<!-- inizio versione-desktop -->
+		<div class="carosello">
+			<div class="items">
+				<div class="item" th:each="opera : ${artista.opere}">
+					<img th:src="@{'/img/opere/' + ${opera.immagine}}" width="100%" height="500">
+					<div class="panel-info p-3">
+						<a th:href="@{'/opera' + '/' + ${opera.id}}"><h3 class="mb-0" th:text="${opera.titolo}">Gioconda</h3></a> 
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- fine versione-desktop -->
+		
+		<!-- inizio versione-mobile -->
+		<div class="carosello-mobile" >
+			<div class="item" th:each="opera : ${artista.opere}">
+				<img th:src="@{'/img/opere/' + ${opera.immagine}}" width="100%" height="500">
+				<div class="panel-info p-2">
+					<a th:href="@{'/opera' + '/' + ${opera.id}}"><h3 class="mb-0" th:text="${opera.titolo}">Gioconda</h3></a> 
+					
+						
+					
+				</div>
+			</div>
+		</div>
+		<!-- fine versione-mobile -->
+		<!-- fine OPERE-scroll -->
+	</main>
+
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+
+	<th:block th:replace="fragments/base.html :: script"></th:block>
+
+</body>
+</html>

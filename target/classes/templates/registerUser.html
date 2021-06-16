@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='Registrazione Utente')"></head>
+<body>
+
+	<!-- inizio MENU -->
+	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+	<header class="container">
+		<div class="row">
+			<div class="col-lg-6 m-auto">
+				<h1 class="mb-4">Registrazione</h1>
+				<div class="alert alert-warning" role="alert">
+					Questa pagina è stata creata al solo scopo di back testing e inizializzazione
+					 al fine di creare un utente che poi verrà convertito in amministratore
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- inizio FORM REGISTRA -->
+	<main class="container">
+		<div class="row">
+			<div class="col-lg-6 m-auto">
+				<form th:action="@{/register}" method="POST">
+					<div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">username</label>
+						<input name="username" type="text" class="form-control"
+							id="exampleInputEmail1" required>
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputPassword1" class="form-label">password</label>
+						<input name="password" type="password" class="form-control"
+							id="exampleInputPassword1" required>
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">Nome</label>
+						<input name="nome" type="text" class="form-control"
+							id="exampleInputEmail1" required>
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">Cognome</label>
+						<input name="cognome" type="text" class="form-control"
+							id="exampleInputEmail1" required>
+					</div>
+					<button type="submit" class="btn btn-outline-dark">Registra</button>
+				</form>
+			</div>
+		</div>
+	
+		
+
+	</main>
+	<!-- fine FORM REGISTRA -->
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+	
+	<th:block th:replace="fragments/base.html :: script"></th:block>
+
+</body>
+</html>

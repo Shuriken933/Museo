@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='informazioni')"></head>
+<body class="informazioni">
+
+	<!-- inizio MENU -->
+	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+
+	<div class="container">
+		
+				<h1 class="mb-4">Informazioni</h1>
+				<div class="row">
+					<div class="col-lg-6 me-auto pe-lg-5">
+						<p>Questo sito è un sistema informativo di un piccolo museo.</p>
+						<p>Nel museo ci sono più collezioni: ogni collezione è gestita
+							da un curatore (un dipendente del museo) e contiene una o più
+							opere. Ogni collezione ha un nome e una descrizione. Un curatore
+							può gestire una o più collezioni. Per ogni curatore sono di
+							interesse nome, cognome, data e luogo di nascita, indirizzo di
+							posta elettronica, numero di telefono, matricola.</p>
+		
+						
+					</div>
+					<div class="col-lg-6 me-auto ps-lg-5">
+						<p>Per ogni opera esposta nelle collezioni del museo sono
+							memorizzati il titolo, l’anno in cui è stata realizzata, una
+							descrizione. Ogni opera è stata realizzata da un artista. Per ogni
+							artista, sono di interesse nome, cognome, data di nascita e luogo
+							di nascita, data e luogo di morte (che potrebbero non essere
+							presenti se l’artista è ancora in vita), nazionalità. Ogni artista
+							può essere autore di più opere.</p>
+					</div>
+				</div>
+				
+			
+
+
+	</div>
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+
+	<th:block th:replace="fragments/base.html :: script"></th:block>
+</body>
+</html>
