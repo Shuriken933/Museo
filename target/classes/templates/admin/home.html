@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='Homepage-admin')"></head>
+
+<body class="home">
+
+	<!-- inizio MENU -->
+	<nav th:replace="fragments/base.html :: menu"></nav>
+	<!-- fine MENU -->
+
+	<header class="container">
+		<h1>Museo dei Quadri</h1>
+		<p>Il museo con più quadri al mondo</p>
+	</header>
+	
+
+
+	<div sec:authorize="hasRole('ADMIN')">Questo contenuto è visto dall'amministratore</div>
+	<div sec:authorize="hasRole('USER')">Questo contenuto è visto da un utente classico</div>
+	<div sec:authorize="isAuthenticated()">Questo contenuto è visto	da un utente autenticato</div>
+
+	Logged user:
+	<span sec:authentication="name">Bob</span>
+	<br> Roles:
+	<span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+		
+
+
+
+	<main>
+		<!-- inizio CAROSELLO -->
+		<!-- inizio versione-desktop -->
+		<div class="carosello">
+			<div class="items">
+				<div class="item item1">
+					<img src="img/leonardo-da-vinci-gioconda.jpg" width="100%" height="500">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Gioconda</h3></a> <a href="artista.html"><h4>
+								- Leonardo Da Vinci</h4></a>
+						
+					</div>
+				</div>
+				<div class="item item2">
+					<img src="img/raffaello-1.jpg" width="100%" height="100%">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Una scena ripresa a caso</h3></a> <a
+							href="artista.html"><h4>- Raffaello</h4></a>
+					</div>
+				</div>
+				<div class="item item3">
+					<img src="img/vanGogh-1.jpg" width="100%" height="300">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Notte stellata</h3></a> <a
+							href="artista.html"><h4>- Van Gogh</h4></a>
+					</div>
+				</div>
+				<div class="item item4">
+					<img src="img/leonardo-da-vinci-gioconda.jpg" width="100%" height="500">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Gioconda</h3></a> <a href="artista.html"><h4>
+								- Leonardo Da Vinci</h4></a>
+					</div>
+				</div>
+				<div class="item item5">
+					<img src="img/vanGogh-1.jpg" alt="" width="100%" height="100%">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Ritratto di Van Gogh</h3></a> <a
+							href="artista.html"><h4>- Van Gogh</h4></a>
+					</div>
+				</div>
+				<div class="item item6">
+					<img src="img/raffaello-1.jpg" width="100%" height="100%">
+					<div class="panel-info p-3">
+						<a href="opera.html"><h3>Una scena a caso</h3></a> <a
+							href="artista.html"><h4>- Raffaello</h4></a>
+					</div>
+				</div>
+				<div class="item p-5">
+					<div class="panel-more-art">
+						<p>
+							Guarda<br>le nostre
+						</p>
+						<a href="#">Collezioni</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- fine versione-desktop -->
+
+		<!-- inizio versione-mobile -->
+		<div class="carosello-mobile">
+			<div class="item item1">
+				<img src="img/vanGogh-1.jpg" alt="3" width="200" height="200">
+				<div class="panel-info p-2">
+					<a href="opera.html"><h3>Gioconda</h3></a> 
+					<a href="artista.html"><h4>	- Leonardo Da Vinci</h4></a>
+				</div>
+			</div>
+			<div class="item item2">
+				<img src="img/vanGogh-1.jpg" alt="3" width="200" height="200">
+				<div class="panel-info p-2">
+					<a href="opera.html"><h3>Una scena ripresa a caso</h3></a> 
+					<a href="artista.html"><h4>- Raffaello</h4></a>
+				</div>
+			</div>
+			<div class="item item3">
+				<img src="img/vanGogh-1.jpg" alt="3" width="200" height="200">
+				<div class="panel-info p-2">
+					<a href="opera.html"><h3>Notte stellata</h3></a> 
+					<a href="artista.html"><h4>- Van Gogh</h4></a>
+				</div>
+			</div>
+			<div class="item item4">
+				<img src="img/vanGogh-1.jpg" alt="3" width="200" height="200">
+				<div class="panel-info p-2">
+					<a href="opera.html"><h3>Gioconda</h3></a> 
+					<a href="artista.html"><h4>	- Leonardo Da Vinci</h4></a>
+				</div>
+			</div>
+			<div class="item item5">
+				<img src="img/vanGogh-1.jpg" alt="3" width="200" height="200">
+				<div class="panel-info p-2">
+					<a href="opera.html"><h3>Ritratto di Van Gogh</h3></a> 
+					<a href="artista.html"><h4>- Van Gogh</h4></a>
+				</div>
+			</div>
+			<div class="item item6">
+				<img src="img/vanGogh-1.jpg" alt="3" width="200" height="200">
+				<div class="panel-info p-2">
+					<a href="opera.html"><h3>Una scena a caso</h3></a> 
+					<a href="artista.html"><h4>- Raffaello</h4></a>
+				</div>
+			</div>
+			<div class="item item--more-art p-3">
+				<div class="panel-more-art">
+					<p>
+						Guarda<br>le nostre
+					</p>
+					<a href="#">Collezioni</a>
+				</div>
+			</div>
+		</div>
+		<!-- fine versione-mobile -->
+		<!-- fine CAROSELLO -->
+
+
+		<!-- inizio OPERE -->
+		<div class="container mb-5">
+			<div class="row opere-2-colonne">
+
+				<div class="col-lg-4">
+					<div class="dark-panel panel--left p-4">
+						<a href="opera.html">
+							<h3>Notte Stellata</h3>
+						</a>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</div>
+				<div class="col-lg-8 mb-5">
+					<img th:src="@{/img/vanGogh-1.jpg}"  class="card-img-top"
+						alt="Van Gogh">
+				</div>
+			</div>
+
+			<div class="row row-reverse opere-2-colonne">
+				<div class="col-lg-8 mb-5">
+					<img th:src="@{/img/vanGogh1.jpg}" class="card-img-top"
+						alt="Van Gogh">
+				</div>
+				<div class="col-lg-4">
+					<div class="dark-panel panel--right p-4">
+						<a href="opera.html">
+							<h3>Un tizio a caso</h3>
+						</a>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row opere-2-colonne">
+				<div class="col-lg-4">
+					<div class="dark-panel panel--left p-4">
+						<a href="opera.html">
+							<h3>Una scena ritratta</h3>
+						</a>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</div>
+				<div class="col-lg-8 mb-5">
+					<img th:src="@{/img/raffaello-1.jpg}" class="card-img-top"
+						alt="Van Gogh">
+				</div>
+
+			</div>
+		</div>
+		<!-- fine OPERE -->
+
+
+		<!-- inizio CITAZIONE -->
+		<div class="container mb-5">
+			<blockquote cite="http://">
+				<p>Le statue non dovrebbero rimanere oziose nei musei,
+					dovrebbero esser sparse nelle città anzi nei villaggi a suscitare o
+					a mantenere il sentimento dell'arte</p>
+				<cite> - Carlo Dossi</cite>
+			</blockquote>
+		</div>
+		<!-- fine CITAZIONE -->
+	</main>
+
+
+	<!-- inizio FOOTER -->
+	<footer th:replace="fragments/base.html :: footer"></footer>
+	<!-- fine FOOTER -->
+	
+	<th:block th:replace="fragments/base.html :: script"></th:block>
+
+</body>
+</html>
